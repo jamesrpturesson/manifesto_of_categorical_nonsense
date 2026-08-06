@@ -46,7 +46,4 @@ format:
             }
           };
           </script>
-  pdf:
-    documentclass: scrreprt
-
 
