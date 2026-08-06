@@ -1,11 +1,13 @@
 project:
   type: book
   output-dir: docs
+  resources:
+    - mathjax/**
 
 book:
   title: "Manifesto Of Categorical Nonsense"
   author: "James R. P. Turesson"
-  date: "2026-08-06"
+  date: last-modified
   chapters:
     - index.qmd
     - intro.qmd
@@ -46,6 +48,5 @@ format:
           </script>
   pdf:
     documentclass: scrreprt
-
 
 
