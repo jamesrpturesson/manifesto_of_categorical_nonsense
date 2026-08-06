@@ -93,35 +93,6 @@ window.MathJax = {
 };
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="mathjax/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -233,14 +204,12 @@ window.Quarto = {
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p><span class="math display">\[
-\begin{aligned}
-  \langle Au, v \rangle &amp;= \int_\Omega \nabla u \cdot \nabla v \,dx \\
-  &amp;\leq \norm{u}_{H^1_0} \norm{v}_{H^1_0}
-\end{aligned}
-\]</span></p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<p>This is a collection of notes, observations and references that I originally made throughout my time as a masters student at the University of Bonn. Born out of my lack of understanding of category theory, I felt utterly blindsided by an enigmatic and everpresent collection of ideas and results which presented itself in virtually every algebraic course which I undertook. Indeed during the first tutorial I attended during my graduate studies, the tutor proclaimed that one of the problems of the first exercise sheets is simply solved by “abstract nonsense”, which was rather upsetting to myself as I had been struggling with that particular problem the entire week. However, in the time since this frightening initial exposure, category theory has cemented itself as a central column in my understanding of any research within algebra.</p>
+<p>The book will introduce categories and discuss the various important types categories which one might encounter. It is intended to be both a suitable introduction to the student who is towards the end of their undergraduate studies, and a compendium of different category theoretical structures, objects and diagrams, where they occur and which properties they may satisfy, suitable for the mathematician who wants to brush up on particular structures.</p>
+<p>Throughout the text I shall ensure to give references and direct the reader to sources which they might find useful. You are free to share this resource wherever you see fit under the condition that it is distributed free of charge and furthers the diversification of the mathematics community. In that vein, I welcome any suggestions and comments on the work, these are after all not ideas that belong to myself, but meerly a regurgitation of of those which were fed to me at various points.</p>
+<div class="text-end">
+<p>— <em>J. R. P. Turesson, Bonn, August 2026</em></p>
+</div>
 
 
 </section>
