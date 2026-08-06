@@ -2,4 +2,11 @@
 
 This is a Quarto book.
 
+$$
+\begin{aligned}
+  \langle Au, v \rangle &= \int_\Omega \nabla u \cdot \nabla v \,dx \\
+  &\leq \norm{u}_{H^1_0} \norm{v}_{H^1_0}
+\end{aligned}
+$$
+
 To learn more about Quarto books visit <https://quarto.org/docs/books>.
