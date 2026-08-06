@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Manifesto Of Categorical Nonsense",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Preface\nThis is a Quarto book.\n\\[\n\\begin{aligned}\n  \\langle Au, v \\rangle &= \\int_\\Omega \\nabla u \\cdot \\nabla v \\,dx \\\\\n  &\\leq \\norm{u}_{H^1_0} \\norm{v}_{H^1_0}\n\\end{aligned}\n\\]\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
     "crumbs": [
       "Preface"
     ]

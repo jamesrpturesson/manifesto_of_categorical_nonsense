@@ -94,6 +94,26 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+window.MathJax = {
+  output: {
+    font: 'mathjax-newcm',
+    fontPath: './mathjax-newcm-font'
+  },
+  tex: {
+    macros: {
+      norm:  ["\\left\\lVert #1 \\right\\rVert", 1],
+      abs:   ["\\left\\lvert #1 \\right\\rvert", 1],
+      ip:    ["\\langle #1, #2 \\rangle", 2],
+      Spec:  "\\operatorname{Spec}",
+      supp:  "\\operatorname{supp}",
+      RR:    "\\mathbb{R}",
+      CC:    "\\mathbb{C}",
+      Hzero: "H^1_0"
+    }
+  }
+};
+</script>
 
 
 </head>
