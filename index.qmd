@@ -1,3 +1,11 @@
+---
+title: "Preface"
+toc: true
+toc-location: body
+toc-title: "On this page"
+toc-depth: 2
+---
+
 # Preface {.unnumbered}
 
 This is a collection of notes, observations and references that I originally made throughout my time as a masters student at the University of Bonn. Born out of my lack of understanding of category theory, I felt utterly blindsided by an enigmatic and everpresent collection of ideas and results which presented itself in virtually every algebraic course which I undertook. Indeed during the first tutorial I attended during my graduate studies, the tutor proclaimed that one of the problems of the first exercise sheets is simply solved by "abstract nonsense", which was rather upsetting to myself as I had been struggling with that particular problem the entire week. However, in the time since this frightening initial exposure, category theory has cemented itself as a central column in my understanding of any research within algebra. 

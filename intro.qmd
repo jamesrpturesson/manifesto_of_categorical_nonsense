@@ -1,5 +1,15 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+::: {#def-category}
+## Category
+A category is a pair of classes $(\Ob, \Mor)$ and a pair of class functions $\dom, \cod:\Mor\to \Ob$ which satisfy the following axioms.
 
-See @knuth84 for additional discussion of literate programming.
+::: {.axioms}
+#. For any two elements $\phi,\psi\in \Mor$ with $\dom \psi =\cod \phi$ there is a unique element $\psi\circ\phi\in \Mor$ such that $\dom (\psi\circ\phi)=\dom \phi$ and $\cod (\psi\circ\phi)=\cod \psi$.
+#. For elements $\phi, \psi, \rho\in \Mor$ such that $\psi\circ\phi$ and $\rho\circ \psi$ are well defined we have that
+$$\rho\circ (\psi\circ\phi)=(\rho\circ\psi)\circ \phi$$
+#.For each $X\in \Ob$ there exists an element $\id_X\in \Mor$ with $\dom \id_X = \cod \id_X=X$ such that for any $\phi,\psi\in \Mor$ with $\dom \psi = \cod \phi= X$ we have
+$$\id_X\circ \phi= \phi\quad\text{and}\quad\psi\circ \id_X=\psi$$
+:::
+
+:::
