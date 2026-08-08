@@ -6,27 +6,47 @@
     "section": "",
     "text": "Preface\nThis is a collection of notes, observations and references that I originally made throughout my time as a masters student at the University of Bonn. Born out of my lack of understanding of category theory, I felt utterly blindsided by an enigmatic and everpresent collection of ideas and results which presented itself in virtually every algebraic course which I undertook. Indeed during the first tutorial I attended during my graduate studies, the tutor proclaimed that one of the problems of the first exercise sheets is simply solved by “abstract nonsense”, which was rather upsetting to myself as I had been struggling with that particular problem the entire week. However, in the time since this frightening initial exposure, category theory has cemented itself as a central column in my understanding of any research within algebra.\nThe book will introduce categories and discuss the various important types categories which one might encounter. It is intended to be both a suitable introduction to the student who is towards the end of their undergraduate studies, and a compendium of different category theoretical structures, objects and diagrams, where they occur and which properties they may satisfy, suitable for the mathematician who wants to brush up on particular structures.\nThroughout the text I shall ensure to give references and direct the reader to sources which they might find useful. You are free to share this resource wherever you see fit under the condition that it is distributed free of charge and furthers the diversification of the mathematics community. In that vein, I welcome any suggestions and comments on the work, these are after all not ideas that belong to myself, but meerly a regurgitation of of those which were fed to me at various points.\n\n— J. R. P. Turesson, Bonn, August 2026",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+      "Preface"
     ]
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "2  Introduction",
+    "title": "1  Introduction to Categories",
     "section": "",
-    "text": "Definition 2.1 (Category) A category is a pair of classes \\((\\Ob, \\Mor)\\) and a pair of class functions \\(\\dom, \\cod:\\Mor\\to \\Ob\\) which satisfy the following axioms.\n\n\nFor any two elements \\(\\phi,\\psi\\in \\Mor\\) with \\(\\dom \\psi =\\cod \\phi\\) there is a unique element \\(\\psi\\circ\\phi\\in \\Mor\\) such that \\(\\dom (\\psi\\circ\\phi)=\\dom \\phi\\) and \\(\\cod (\\psi\\circ\\phi)=\\cod \\psi\\).\nFor elements \\(\\phi, \\psi, \\rho\\in \\Mor\\) such that \\(\\psi\\circ\\phi\\) and \\(\\rho\\circ \\psi\\) are well defined we have that \\[\\rho\\circ (\\psi\\circ\\phi)=(\\rho\\circ\\psi)\\circ \\phi\\] #.For each \\(X\\in \\Ob\\) there exists an element \\(\\id_X\\in \\Mor\\) with \\(\\dom \\id_X = \\cod \\id_X=X\\) such that for any \\(\\phi,\\psi\\in \\Mor\\) with \\(\\dom \\psi = \\cod \\phi= X\\) we have \\[\\id_X\\circ \\phi= \\phi\\quad\\text{and}\\quad\\psi\\circ \\id_X=\\psi\\]",
+    "text": "1.1 Our first category\nThe notion of a category was popularised by Eilenberg and MacLane and is motivated by several examples of essential structures and their associated maps such as groups and group homomorphisms or vector spaces and linear transformations (Eilenberg and MacLane 1945). However, as outlined in the introduction to the paper, one of the main interests in developing this theory lies in studying functors (maps between categories) and maps between functors. We may already be getting a head of ourselves here and so I would like to focus on a structure which many mathematicians become familiar with during their undergraduate degrees, namely the group.\nAlthough a the group itself is initially an area of interest for the young mathematician, the simple axioms giving rise to properties such as uniqueness of identities and inverses, one realises rather swiftly that the beauty of the theory of groups lie in the study of the relation between groups. This work is done by group homomorphisms, the mappings associated to group theory.\nGroup homomorphisms are verily stronger than a simple map on the underlying sets, as they ensure that the group operation is respected. It carries the strucure of the domain in a nice manner, mapping the domain’s identity to the identity of the codomain, and similarly bringing inverses to inverses in the obvious manner. Note that a group homomorphism \\(\\phi\\) has a source group \\(G\\) and a target group \\(H\\) called the domain and codomain respectively, and these groups encode which other homomorphisms can be used in composition with \\(\\phi\\). We denote the domain of a group homomorphism \\(\\phi\\) by \\(\\dom\\phi\\) and the codomain by \\(\\cod\\phi\\). Let \\(\\Mor_{\\Grp}\\) denote the class of all group homomorphism, and let \\(\\Mor_{\\Grp} \\times_{\\Grp}\\Mor_{\\Grp}\\) denote the set \\[\\{(\\psi, \\phi)\\in \\Mor_{\\Grp} \\times\\Mor_{\\Grp}\\,\\vert\\, \\cod\\phi=\\dom\\psi \\}\\]",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Categories</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#our-first-category",
+    "href": "intro.html#our-first-category",
+    "title": "1  Introduction to Categories",
+    "section": "",
+    "text": "Definition 1.3 (Category) A category consists of a pair of classes \\((\\Ob, \\Mor)\\), a pair of class functions \\(\\dom, \\cod:\\Mor\\to \\Ob\\) and a class function \\[\\circ: \\Mor\\times_{\\Ob}\\Mor\\to \\Mor\\] where \\[\\Mor\\times_{\\Ob}\\Mor:=\\{(\\psi,\\phi)\\in \\Mor\\times \\Mor\\,\\vert\\,\\dom \\psi=\\cod \\phi\\}\\] which satisfy the following axioms. Note that here we write \\(\\psi\\circ \\phi\\) instead of \\(\\circ (\\psi, \\phi)\\).\n\n\nFor any two elements \\((\\psi,\\phi)\\in \\Mor\\times_{\\Ob} \\Mor\\) we have \\(\\dom (\\psi\\circ\\phi)=\\dom \\phi\\) and \\(\\cod (\\psi\\circ\\phi)=\\cod \\psi\\).\nFor elements \\(\\phi, \\psi, \\rho\\in \\Mor\\) such that \\(\\psi\\circ\\phi\\) and \\(\\rho\\circ \\psi\\) are well defined we have that \\[\\rho\\circ (\\psi\\circ\\phi)=(\\rho\\circ\\psi)\\circ \\phi\\]\nFor each \\(X\\in \\Ob\\) there exists an element \\(\\id_X\\in \\Mor\\) with \\(\\dom \\id_X = \\cod \\id_X=X\\) such that we have \\[\\id_X\\circ \\phi= \\phi\\] for all \\(\\phi\\in\\Mor\\) with \\(\\cod \\phi = X\\), and \\[\\psi\\circ \\id_X=\\psi\\] for all \\(\\psi\\in\\Mor\\) with \\(\\dom \\psi = X\\).\n\n\n\n\n\n\n\nEilenberg, Samuel, and Saunders MacLane. 1945. “General Theory of Natural Equivalences.” Trans. Amer. Math. Soc. 58: 231–94. https://doi.org/10.2307/1990284.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Categories</span>"
     ]
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "3  Summary",
+    "title": "2  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Eilenberg, Samuel, and Saunders MacLane. 1945. “General Theory of\nNatural Equivalences.” Trans. Amer. Math. Soc. 58:\n231–94. https://doi.org/10.2307/1990284.",
+    "crumbs": [
+      "References"
     ]
   }
 ]

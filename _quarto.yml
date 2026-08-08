@@ -42,7 +42,8 @@ format:
                 supp:  "\\operatorname{supp}",
                 RR:    "\\mathbb{R}",
                 CC:    "\\mathbb{C}",
-                Hzero: "H^1_0"
+                Hzero: "H^1_0",
+                Grp: "\\operatorname{Grp}"
               }
             }
           };

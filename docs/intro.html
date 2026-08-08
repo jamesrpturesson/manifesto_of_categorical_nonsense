@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Introduction – Manifesto Of Categorical Nonsense</title>
+<title>1&nbsp; Introduction to Categories – Manifesto Of Categorical Nonsense</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -91,7 +110,8 @@ window.MathJax = {
       supp:  "\\operatorname{supp}",
       RR:    "\\mathbb{R}",
       CC:    "\\mathbb{C}",
-      Hzero: "H^1_0"
+      Hzero: "H^1_0",
+      Grp: "\\operatorname{Grp}"
     }
   }
 };
@@ -138,7 +158,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Categories</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,19 +186,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Categories</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -192,15 +212,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link active" data-scroll-target="#our-first-category"><span class="header-section-number">1.1</span> Our first category</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Categories</span></h1>
 </div>
 
 
@@ -217,17 +243,42 @@ window.Quarto = {
 </header>
 
 
-<div id="def-category" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.1 (Category)</strong></span> A category is a pair of classes <span class="math inline">\((\Ob, \Mor)\)</span> and a pair of class functions <span class="math inline">\(\dom, \cod:\Mor\to \Ob\)</span> which satisfy the following axioms.</p>
+<p>The notion of a category was popularised by Eilenberg and MacLane and is motivated by several examples of essential structures and their associated maps such as groups and group homomorphisms or vector spaces and linear transformations <span class="citation" data-cites="EilMac45">(<a href="references.html#ref-EilMac45" role="doc-biblioref">Eilenberg and MacLane 1945</a>)</span>. However, as outlined in the introduction to the paper, one of the main interests in developing this theory lies in studying functors (maps between categories) and maps between functors. We may already be getting a head of ourselves here and so I would like to focus on a structure which many mathematicians become familiar with during their undergraduate degrees, namely the group.</p>
+<div id="def-group" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1 (Group)</strong></span> A group is a set <span class="math inline">\(G\)</span> equipped with a binary operation <span class="math inline">\(\ast:G\times G\to G\)</span> such that the following axioms are satisfied.</p>
 <div class="axioms">
 <ol>
-<li>For any two elements <span class="math inline">\(\phi,\psi\in \Mor\)</span> with <span class="math inline">\(\dom \psi =\cod \phi\)</span> there is a unique element <span class="math inline">\(\psi\circ\phi\in \Mor\)</span> such that <span class="math inline">\(\dom (\psi\circ\phi)=\dom \phi\)</span> and <span class="math inline">\(\cod (\psi\circ\phi)=\cod \psi\)</span>.</li>
-<li>For elements <span class="math inline">\(\phi, \psi, \rho\in \Mor\)</span> such that <span class="math inline">\(\psi\circ\phi\)</span> and <span class="math inline">\(\rho\circ \psi\)</span> are well defined we have that <span class="math display">\[\rho\circ (\psi\circ\phi)=(\rho\circ\psi)\circ \phi\]</span> #.For each <span class="math inline">\(X\in \Ob\)</span> there exists an element <span class="math inline">\(\id_X\in \Mor\)</span> with <span class="math inline">\(\dom \id_X = \cod \id_X=X\)</span> such that for any <span class="math inline">\(\phi,\psi\in \Mor\)</span> with <span class="math inline">\(\dom \psi = \cod \phi= X\)</span> we have <span class="math display">\[\id_X\circ \phi= \phi\quad\text{and}\quad\psi\circ \id_X=\psi\]</span></li>
+<li>There exists an element <span class="math inline">\(e\in G\)</span> such that <span class="math inline">\(e\ast g=g=g\ast e\)</span> for any element <span class="math inline">\(g\in G\)</span>.</li>
+<li>For each element <span class="math inline">\(g\in G\)</span> there exists an element <span class="math inline">\(g^{-1}\in G\)</span> such that <span class="math inline">\(g\ast g^{-1}=e=g^{-1}\ast g\)</span>.</li>
+<li>For any elements <span class="math inline">\(\alpha,\beta,\gamma\in G\)</span> we have <span class="math display">\[\alpha\circ (\beta\circ \gamma)=(\alpha \circ\beta )\circ \gamma\]</span></li>
+</ol>
+</div>
+</div>
+<p>Although a the group itself is initially an area of interest for the young mathematician, the simple axioms giving rise to properties such as uniqueness of identities and inverses, one realises rather swiftly that the beauty of the theory of groups lie in the study of the relation between groups. This work is done by group homomorphisms, the mappings associated to group theory.</p>
+<div id="def-grouphom" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.2 (Group homomorphism)</strong></span> Let <span class="math inline">\(G\)</span> and <span class="math inline">\(H\)</span> be groups, then we call a map <span class="math inline">\(\phi: G\to H\)</span> a group homomorphism if for any <span class="math inline">\(g,h\in G\)</span> we have <span class="math display">\[\phi(g\ast_G h)= \phi(g)\ast_H\phi (h)\]</span></p>
+</div>
+<p>Group homomorphisms are verily stronger than a simple map on the underlying sets, as they ensure that the group operation is respected. It carries the strucure of the domain in a nice manner, mapping the domain’s identity to the identity of the codomain, and similarly bringing inverses to inverses in the obvious manner. Note that a group homomorphism <span class="math inline">\(\phi\)</span> has a source group <span class="math inline">\(G\)</span> and a target group <span class="math inline">\(H\)</span> called the domain and codomain respectively, and these groups encode which other homomorphisms can be used in composition with <span class="math inline">\(\phi\)</span>. We denote the domain of a group homomorphism <span class="math inline">\(\phi\)</span> by <span class="math inline">\(\dom\phi\)</span> and the codomain by <span class="math inline">\(\cod\phi\)</span>. Let <span class="math inline">\(\Mor_{\Grp}\)</span> denote the class of all group homomorphism, and let <span class="math inline">\(\Mor_{\Grp} \times_{\Grp}\Mor_{\Grp}\)</span> denote the set <span class="math display">\[\{(\psi, \phi)\in \Mor_{\Grp} \times\Mor_{\Grp}\,\vert\, \cod\phi=\dom\psi \}\]</span></p>
+<section id="our-first-category" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="our-first-category"><span class="header-section-number">1.1</span> Our first category</h2>
+<div id="def-category" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.3 (Category)</strong></span> A category consists of a pair of classes <span class="math inline">\((\Ob, \Mor)\)</span>, a pair of class functions <span class="math inline">\(\dom, \cod:\Mor\to \Ob\)</span> and a class function <span class="math display">\[\circ: \Mor\times_{\Ob}\Mor\to \Mor\]</span> where <span class="math display">\[\Mor\times_{\Ob}\Mor:=\{(\psi,\phi)\in \Mor\times \Mor\,\vert\,\dom \psi=\cod \phi\}\]</span> which satisfy the following axioms. Note that here we write <span class="math inline">\(\psi\circ \phi\)</span> instead of <span class="math inline">\(\circ (\psi, \phi)\)</span>.</p>
+<div class="axioms">
+<ol>
+<li>For any two elements <span class="math inline">\((\psi,\phi)\in \Mor\times_{\Ob} \Mor\)</span> we have <span class="math inline">\(\dom (\psi\circ\phi)=\dom \phi\)</span> and <span class="math inline">\(\cod (\psi\circ\phi)=\cod \psi\)</span>.</li>
+<li>For elements <span class="math inline">\(\phi, \psi, \rho\in \Mor\)</span> such that <span class="math inline">\(\psi\circ\phi\)</span> and <span class="math inline">\(\rho\circ \psi\)</span> are well defined we have that <span class="math display">\[\rho\circ (\psi\circ\phi)=(\rho\circ\psi)\circ \phi\]</span></li>
+<li>For each <span class="math inline">\(X\in \Ob\)</span> there exists an element <span class="math inline">\(\id_X\in \Mor\)</span> with <span class="math inline">\(\dom \id_X = \cod \id_X=X\)</span> such that we have <span class="math display">\[\id_X\circ \phi= \phi\]</span> for all <span class="math inline">\(\phi\in\Mor\)</span> with <span class="math inline">\(\cod \phi = X\)</span>, and <span class="math display">\[\psi\circ \id_X=\psi\]</span> for all <span class="math inline">\(\psi\in\Mor\)</span> with <span class="math inline">\(\dom \psi = X\)</span>.</li>
 </ol>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-EilMac45" class="csl-entry" role="listitem">
+Eilenberg, Samuel, and Saunders MacLane. 1945. <span>“General Theory of Natural Equivalences.”</span> <em>Trans. Amer. Math. Soc.</em> 58: 231–94. <a href="https://doi.org/10.2307/1990284">https://doi.org/10.2307/1990284</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -633,12 +684,12 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
