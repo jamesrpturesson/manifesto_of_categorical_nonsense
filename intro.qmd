@@ -56,7 +56,24 @@ The example above demonstrates that if a group homomorphism $\phi$ has domain $G
 Let $\phi:G\to H$ be a group homomorphism. A group homomorphism $\psi: H\to G$ is called a right inverse of $\phi$ if $\phi\circ \psi=\id_H$ and it is called a left inverse of $\phi$ if $\phi\circ\psi=\id_G$. Furthermore, $\psi$ is called an inverse of $\phi$ if it is both a right and left inverse of $\phi$. 
 :::
 
+Usually we are introduced to group isomorphisms as bijective group homomorphisms, however here we will adopt the view which will give rise to the definition of the general isomorphism in the theory of categories. Instead of considering injectivity and surjectivity of a group isomorphism we will consider inverses.
 
+::: {#prp-inversegivesiso}
+A group homomorphism $\phi : G\to H$ admits an inverse $\psi: H\to G$ if and only if it is an isomorphism.
+:::
+
+::: {.proof}
+Suppose that $\psi$ is an inverse of $\phi$. Let $h\in H$, we will show that there exists an element $g\in G$ such that $\phi(g)=h$. Note that
+$$h=\id_H(h)=\phi\circ\psi (h)$$
+and as $\psi(h)\in G$ we have that $\phi$ is surjective. Consider now two elements $g_1, g_2\in G$ such that $\phi(g_1)=\phi(g_2)$, we will now show that we must have $g_1=g_2$. We have
+$$g_1=\id_G (g_1)=\psi\circ\phi(g_1)=\psi(\phi(g_1))=\psi(\phi(g_2))=\psi\circ\phi(g_2)=\id_G(g_2)=g_2$$
+and so it follows that $\phi$ is injective.
+
+Conversely, suppose that $\phi$ is an isomorphism, which is that it is both surjective and injective. Let us consider the map $\psi :H\to G$ defined by sending $h\in H$ to the unique element in its preimage under $\phi$, uniqueness follows from injectivity and existence follows from surjectivity. Then 
+$\phi\circ \psi(h)=h$ and so $\phi\circ \psi=\id_H$, further, $\psi\circ \phi(g)=g$ and so $\psi\circ \phi=\id_G$. Now $\psi$ is an inverse of $\phi$.
+:::
+
+This will likely not have been anything new to the reader, however if you have not been exposed to category theory before then this shift in perspective towards examining properties of maps by how they compose with others is going to aid in abstracting the essence of what gives structure to all agebraic structures. More generally than the result above we have that a group homomorphism is injective if and only if it admits a left inverse and it is surjective if and only if it admits a right inverse.
 
 ## Our first category
 
