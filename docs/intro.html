@@ -212,8 +212,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link active" data-scroll-target="#our-first-category"><span class="header-section-number">1.1</span> Our first category</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -277,7 +283,9 @@ window.Quarto = {
 <p>Conversely, suppose that <span class="math inline">\(\phi\)</span> is an isomorphism, which is that it is both surjective and injective. Let us consider the map <span class="math inline">\(\psi :H\to G\)</span> defined by sending <span class="math inline">\(h\in H\)</span> to the unique element in its preimage under <span class="math inline">\(\phi\)</span>, uniqueness follows from injectivity and existence follows from surjectivity. Then <span class="math inline">\(\phi\circ \psi(h)=h\)</span> and so <span class="math inline">\(\phi\circ \psi=\id_H\)</span>, further, <span class="math inline">\(\psi\circ \phi(g)=g\)</span> and so <span class="math inline">\(\psi\circ \phi=\id_G\)</span>. Now <span class="math inline">\(\psi\)</span> is an inverse of <span class="math inline">\(\phi\)</span>.</p>
 </div>
 <p>This will likely not have been anything new to the reader, however if you have not been exposed to category theory before then this shift in perspective towards examining properties of maps by how they compose with others is going to aid in abstracting the essence of what gives structure to all agebraic structures. More generally than the result above we have that a group homomorphism is injective if and only if it admits a left inverse and it is surjective if and only if it admits a right inverse.</p>
-<p>Finally, I would like to bring our attention to subgroups. Recall that a subset <span class="math inline">\(H\)</span> of a group <span class="math inline">\(G\)</span> is called a subgroup if <span class="math inline">\(H\)</span> forms a group with respect to the group operation <span class="math inline">\(\ast_G\)</span>. Equivalently, a nonempty subset <span class="math inline">\(H\)</span> is a subgroup if it is closed under <span class="math inline">\(\ast_G\)</span> and inverses. Generally, algebraic structures have underlying sets and so a substructure <span class="math inline">\(B\)</span> of an algebraic structure <span class="math inline">\(A\)</span> is just a subset <span class="math inline">\(B\)</span> such that when endowed with the same operations as <span class="math inline">\(A\)</span> it satisfies the axioms of being the type of structure in question. This is unfortunaetly not quite as easy in category theory in its fullest generality, the underlying objects which form a category are not sets with structure, they may be far more abstract and do not contain elements. Subobjects and quotients are not as obvious in the general category as it for groups and vector spaces. In practice one often works with categories in which the objects have underlying sets and maps have kernels, images, cokernels, et cetera. We will explore when we can treat categories as if they have elements in each object later. ## Our first category</p>
+<p>Finally, I would like to bring our attention to subgroups. Recall that a subset <span class="math inline">\(H\)</span> of a group <span class="math inline">\(G\)</span> is called a subgroup if <span class="math inline">\(H\)</span> forms a group with respect to the group operation <span class="math inline">\(\ast_G\)</span>. Equivalently, a nonempty subset <span class="math inline">\(H\)</span> is a subgroup if it is closed under <span class="math inline">\(\ast_G\)</span> and inverses. Generally, algebraic structures have underlying sets and so a substructure <span class="math inline">\(B\)</span> of an algebraic structure <span class="math inline">\(A\)</span> is just a subset <span class="math inline">\(B\)</span> such that when endowed with the same operations as <span class="math inline">\(A\)</span> it satisfies the axioms of being the type of structure in question. This is unfortunaetly not quite as easy in category theory in its fullest generality, the underlying objects which form a category are not sets with structure, they may be far more abstract and do not contain elements. Subobjects and quotients are not as obvious in the general category as it for groups and vector spaces. In practice one often works with categories in which the objects have underlying sets and maps have kernels, images, cokernels, et cetera. We will explore when we can treat categories as if they have elements in each object later.</p>
+<section id="our-first-category" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="our-first-category"><span class="header-section-number">1.1</span> Our first category</h2>
 <div id="def-category" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.5 (Category)</strong></span> A category consists of a pair of classes <span class="math inline">\((\Ob, \Mor)\)</span>, a pair of class functions <span class="math inline">\(\dom, \cod:\Mor\to \Ob\)</span> and a class function <span class="math display">\[\circ: \Mor\times_{\Ob}\Mor\to \Mor\]</span> where <span class="math display">\[\Mor\times_{\Ob}\Mor:=\{(\psi,\phi)\in \Mor\times \Mor\,\vert\,\dom \psi=\cod \phi\}\]</span> which satisfy the following axioms. Note that here we write <span class="math inline">\(\psi\circ \phi\)</span> instead of <span class="math inline">\(\circ (\psi, \phi)\)</span>.</p>
 <div class="axioms">
@@ -295,6 +303,7 @@ window.Quarto = {
 Eilenberg, Samuel, and Saunders MacLane. 1945. <span>“General Theory of Natural Equivalences.”</span> <em>Trans. Amer. Math. Soc.</em> 58: 231–94. <a href="https://doi.org/10.2307/1990284">https://doi.org/10.2307/1990284</a>.
 </div>
 </div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
