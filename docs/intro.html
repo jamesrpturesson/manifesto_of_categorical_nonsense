@@ -149,7 +149,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -217,12 +217,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link active" data-scroll-target="#our-first-category"><span class="header-section-number">1.1</span> Our first category</a></li>
+  <li><a href="#abstracting-groups" id="toc-abstracting-groups" class="nav-link active" data-scroll-target="#abstracting-groups"><span class="header-section-number">1.1</span> Abstracting groups</a></li>
+  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link" data-scroll-target="#our-first-category"><span class="header-section-number">1.2</span> Our first category</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -243,7 +244,10 @@ window.Quarto = {
 </header>
 
 
-<p>The notion of a category was popularised by Eilenberg and MacLane and is motivated by several examples of essential structures and their associated maps such as groups and group homomorphisms or vector spaces and linear transformations <span class="citation" data-cites="EilMac45">(<a href="references.html#ref-EilMac45" role="doc-biblioref">Eilenberg and MacLane 1945</a>)</span>. However, as outlined in the introduction to the paper, one of the main interests in developing this theory lies in studying functors (maps between categories) and maps between functors. We may already be getting a head of ourselves here and so I would like to focus on a structure which many mathematicians become familiar with during their undergraduate degrees, namely the group.</p>
+<p>The notion of a category was popularised by Eilenberg and MacLane and is motivated by several examples of essential structures and their associated maps such as groups and group homomorphisms or vector spaces and linear transformations <span class="citation" data-cites="EilMac45">(<a href="references.html#ref-EilMac45" role="doc-biblioref">Eilenberg and MacLane 1945</a>)</span>. However, as outlined in the introduction to the paper, one of the main interests in developing this theory lies in studying functors (maps between categories) and maps between functors. We may already be getting a head of ourselves here and so I would like to focus on a structure which many mathematicians become familiar with during their undergraduate degrees, namely the group. The purpose here will be think about the fundamental features of the structures involved in group theory and how they me abstracted. Furthermore, we introduce a concept which is fundamental to category theory; properties of maps may not be checked element wise in the general setting. This requires a shift in perspective, away from studying maps individually and towards studying them in relation to other maps.</p>
+<section id="abstracting-groups" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="abstracting-groups"><span class="header-section-number">1.1</span> Abstracting groups</h2>
+<p>First we recall the definition of the group. We will later abuse the notation, as is usual, and refer to both the underlying set and the group itself by the same symbol.</p>
 <div id="def-group" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.1 (Group)</strong></span> A group is a set <span class="math inline">\(G\)</span> equipped with a binary operation <span class="math inline">\(\ast:G\times G\to G\)</span> such that the following axioms are satisfied.</p>
 <div class="axioms">
@@ -254,7 +258,7 @@ window.Quarto = {
 </ol>
 </div>
 </div>
-<p>Although the group itself is initially an area of interest for the young mathematician, the simple axioms giving rise to properties such as uniqueness of identities and inverses, one realises rather swiftly that the beauty of the theory of groups lie in the study of the relation between groups. This work is done by group homomorphisms, the mappings associated to group theory.</p>
+<p>Although the group itself is initially an area of interest for the young mathematician, the simple axioms giving rise to properties such as uniqueness of identities and inverses, one realises rather swiftly that the beauty of the theory of groups lie in the study of the relation between groups. This work is done by group homomorphisms, the mappings associated to group theory. This is a feature throughout the various fields of study for different algebraic structures, it is the maps in and out of the structures which give them meaning, we are studying the interstructure relationships through the mappings.</p>
 <div id="def-grouphom" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.2 (Group homomorphism)</strong></span> Let <span class="math inline">\(G\)</span> and <span class="math inline">\(H\)</span> be groups, then we call a map <span class="math inline">\(\phi: G\to H\)</span> a group homomorphism if for any <span class="math inline">\(g,h\in G\)</span> we have <span class="math display">\[\phi(g\ast_G h)= \phi(g)\ast_H\phi (h)\]</span></p>
 </div>
@@ -266,7 +270,7 @@ window.Quarto = {
 <div id="def-grouphomcomp" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.3 (Composition of group homomorphism)</strong></span> The class function <span class="math inline">\(\circ : \Mor_{\Grp} \times_{\Grp}\Mor_{\Grp}\to \Mor_{\Grp}\)</span> defined by <span class="math inline">\((\psi,\phi)\mapsto [x\mapsto \psi (\phi(x))]\)</span> is called the composition map of group homomorphisms. We denote <span class="math inline">\(\circ (\psi, \phi)\)</span> by <span class="math inline">\(\psi\circ\phi\)</span>.</p>
 </div>
-<p>I agree with the sentient that the tedium here is excesssive and is not necessary in forming an understanding of group theory, however, I believe this view of composition will aid in understanding the generalisation which we present in category theory. The mappings in category theory (which will be called morphisms) are in general far more abstract. We might not be able to speak of images of single points in a domain, nor would we be able to speak of if a point is a member of the kernel or not. Theses abstracted properties are instead presented by the structures of morphisms in relation to each other and through composition. That being said, we will examine how the composition of group homomorphisms work by doing it element wise.</p>
+<p>I agree with the sentient that the tedium here is excesssive and is not necessary in forming an understanding of group theory, however, I believe this view of composition will aid in understanding the generalisation which we present in category theory. The mappings in category theory (which will be called morphisms) are in general far more abstract. We might not be able to speak of images of single points in a domain, nor would we be able to speak of if a point is a member of the kernel or not. These abstracted properties are instead presented by the structures of morphisms in relation to each other and through composition. That being said, we will examine how the composition of group homomorphisms work by doing it element wise.</p>
 <div id="exm-identitygrouphomcomp" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.2 (Composition with identity homomorphism)</strong></span> Let <span class="math inline">\(\phi:G\to H\)</span> be a group homomorphism, and consider the following compositions with the identity <span class="math inline">\(\id_G\)</span> and the identity <span class="math inline">\(\id_H\)</span> <span class="math display">\[\phi\circ\id_G(g)=\phi(\id_G(g))=\phi(g)\]</span> and similarly we have that <span class="math display">\[\id_H\circ \phi(g)=\id_G(\phi(g))=\phi(g)\]</span></p>
 </div>
@@ -282,12 +286,14 @@ window.Quarto = {
 <p><span class="proof-title"><em>Proof</em>. </span>Suppose that <span class="math inline">\(\psi\)</span> is an inverse of <span class="math inline">\(\phi\)</span>. Let <span class="math inline">\(h\in H\)</span>, we will show that there exists an element <span class="math inline">\(g\in G\)</span> such that <span class="math inline">\(\phi(g)=h\)</span>. Note that <span class="math display">\[h=\id_H(h)=\phi\circ\psi (h)\]</span> and as <span class="math inline">\(\psi(h)\in G\)</span> we have that <span class="math inline">\(\phi\)</span> is surjective. Consider now two elements <span class="math inline">\(g_1, g_2\in G\)</span> such that <span class="math inline">\(\phi(g_1)=\phi(g_2)\)</span>, we will now show that we must have <span class="math inline">\(g_1=g_2\)</span>. We have <span class="math display">\[g_1=\id_G (g_1)=\psi\circ\phi(g_1)=\psi(\phi(g_1))=\psi(\phi(g_2))=\psi\circ\phi(g_2)=\id_G(g_2)=g_2\]</span> and so it follows that <span class="math inline">\(\phi\)</span> is injective.</p>
 <p>Conversely, suppose that <span class="math inline">\(\phi\)</span> is an isomorphism, which is that it is both surjective and injective. Let us consider the map <span class="math inline">\(\psi :H\to G\)</span> defined by sending <span class="math inline">\(h\in H\)</span> to the unique element in its preimage under <span class="math inline">\(\phi\)</span>, uniqueness follows from injectivity and existence follows from surjectivity. Then <span class="math inline">\(\phi\circ \psi(h)=h\)</span> and so <span class="math inline">\(\phi\circ \psi=\id_H\)</span>, further, <span class="math inline">\(\psi\circ \phi(g)=g\)</span> and so <span class="math inline">\(\psi\circ \phi=\id_G\)</span>. Now <span class="math inline">\(\psi\)</span> is an inverse of <span class="math inline">\(\phi\)</span>.</p>
 </div>
-<p>This will likely not have been anything new to the reader, however if you have not been exposed to category theory before then this shift in perspective towards examining properties of maps by how they compose with others is going to aid in abstracting the essence of what gives structure to all agebraic structures. More generally than the result above we have that a group homomorphism is injective if and only if it admits a left inverse and it is surjective if and only if it admits a right inverse.</p>
+<p>This will likely not have been anything new to the reader, however if you have not been exposed to category theory before then this shift in perspective towards examining properties of maps by how they compose with others is going to aid in abstracting the essence of what gives meaning to all agebraic structures. More generally than the result above we have that a group homomorphism is injective if and only if it admits a left inverse and it is surjective if and only if it admits a right inverse.</p>
 <p>Finally, I would like to bring our attention to subgroups. Recall that a subset <span class="math inline">\(H\)</span> of a group <span class="math inline">\(G\)</span> is called a subgroup if <span class="math inline">\(H\)</span> forms a group with respect to the group operation <span class="math inline">\(\ast_G\)</span>. Equivalently, a nonempty subset <span class="math inline">\(H\)</span> is a subgroup if it is closed under <span class="math inline">\(\ast_G\)</span> and inverses. Generally, algebraic structures have underlying sets and so a substructure <span class="math inline">\(B\)</span> of an algebraic structure <span class="math inline">\(A\)</span> is just a subset <span class="math inline">\(B\)</span> such that when endowed with the same operations as <span class="math inline">\(A\)</span> it satisfies the axioms of being the type of structure in question. This is unfortunaetly not quite as easy in category theory in its fullest generality, the underlying objects which form a category are not sets with structure, they may be far more abstract and do not contain elements. Subobjects and quotients are not as obvious in the general category as it for groups and vector spaces. In practice one often works with categories in which the objects have underlying sets and maps have kernels, images, cokernels, et cetera. We will explore when we can treat categories as if they have elements in each object later.</p>
-<section id="our-first-category" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="our-first-category"><span class="header-section-number">1.1</span> Our first category</h2>
+</section>
+<section id="our-first-category" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="our-first-category"><span class="header-section-number">1.2</span> Our first category</h2>
+<p>We now introduce the titular concept, the category. We want to abstract the features which allow us to study structures such as groups, vector spaces, rings, module, algebras, sets, et cetera. The idea is that a category is a collection of objects share the same type of structure and a collection of morphisms between them. For a category of sets we would like to have the sets as objects and maps which are just the basic functions of sets. For a category of groups we want a collection of groups and a collection of group homomorphisms. We do however want to ensure that we always have the idenity maps for each object in the category.</p>
 <div id="def-category" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.5 (Category)</strong></span> A category consists of a pair of classes <span class="math inline">\((\Ob, \Mor)\)</span>, a pair of class functions <span class="math inline">\(\dom, \cod:\Mor\to \Ob\)</span> and a class function <span class="math display">\[\circ: \Mor\times_{\Ob}\Mor\to \Mor\]</span> where <span class="math display">\[\Mor\times_{\Ob}\Mor:=\{(\psi,\phi)\in \Mor\times \Mor\,\vert\,\dom \psi=\cod \phi\}\]</span> which satisfy the following axioms. Note that here we write <span class="math inline">\(\psi\circ \phi\)</span> instead of <span class="math inline">\(\circ (\psi, \phi)\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1.5 (Category)</strong></span> A category <span class="math inline">\(\mathcal{C}\)</span> consists of a pair of classes <span class="math inline">\((\Ob, \Mor)\)</span>, a pair of class functions <span class="math inline">\(\dom, \cod:\Mor\to \Ob\)</span> and a class function <span class="math display">\[\circ: \Mor\times_{\Ob}\Mor\to \Mor\]</span> where <span class="math display">\[\Mor\times_{\Ob}\Mor:=\{(\psi,\phi)\in \Mor\times \Mor\,\vert\,\dom \psi=\cod \phi\}\]</span> which satisfy the following axioms. Note that here we write <span class="math inline">\(\psi\circ \phi\)</span> instead of <span class="math inline">\(\circ (\psi, \phi)\)</span>.</p>
 <div class="axioms">
 <ol>
 <li>For any two elements <span class="math inline">\((\psi,\phi)\in \Mor\times_{\Ob} \Mor\)</span> we have <span class="math inline">\(\dom (\psi\circ\phi)=\dom \phi\)</span> and <span class="math inline">\(\cod (\psi\circ\phi)=\cod \psi\)</span>.</li>
@@ -296,14 +302,38 @@ window.Quarto = {
 </ol>
 </div>
 </div>
+<p>We refer to the members of <span class="math inline">\(\Ob\)</span> as objects and members of <span class="math inline">\(\Mor\)</span> as morphisms. We tend to abuse the notation here and write <span class="math inline">\(X\in \mathcal{C}\)</span> for an object <span class="math inline">\(X\)</span>. Additionally, we often give morphisms <span class="math inline">\(\phi :X\to Y\)</span>, in the same manner as for the structures which we are use to, to mean that <span class="math inline">\(\phi\in\Mor\)</span>, and <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are objects such that <span class="math inline">\(\dom\phi = X\)</span> and <span class="math inline">\(\cod\phi =Y\)</span>. When we are working with multiple categories we might distinguish the object and morphism classes by subscripts, such as <span class="math inline">\(\Ob_\mathcal{C}\)</span> for the object class of <span class="math inline">\(\mathcal{C}\)</span> or <span class="math inline">\(\Mor_\mathcal{A}\)</span> for the morphism class of <span class="math inline">\(\mathcal{A}\)</span>. The definition above differs from that given by <span class="citation" data-cites="EilMac45">(<a href="references.html#ref-EilMac45" role="doc-biblioref">Eilenberg and MacLane 1945</a>)</span>,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> here i favour a modified version of the definition given by <span class="citation" data-cites="Lein14">(<a href="references.html#ref-Lein14" role="doc-biblioref">Leinster 2014</a>)</span> as it avoids having to deal with the, in my opinion, convoluted handling of domain and codomain, and identities. The presentation which I have given here is more in line with what is usually presented in an introduction to category theory, in my experience.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In particular the domain and codomain maps do not appear in the definition from Eilenberg and MacLane, and the axioms instead give rise to a result which states that each morphim <span class="math inline">\(\phi\)</span> admits exactly one identity <span class="math inline">\(\id_X\)</span> such that <span class="math inline">\(\phi\circ\id_X\)</span> is defined, and exactly one identity <span class="math inline">\(\id_Y\)</span> such that <span class="math inline">\(\id_Y\circ\phi\)</span> is well defined. Then <span class="math inline">\(X\)</span> is the domain and <span class="math inline">\(Y\)</span> is the codomain.</p></div></div><p>For each object <span class="math inline">\(X\in \mathcal{C}\)</span> we call the morphism <span class="math inline">\(\id_X:X\to X\)</span> the identity at <span class="math inline">\(X\)</span>. In the same manner which one would prove that the group identity is unique we of course obtain that the identity at each object is unique. We give the definition of inverse morphisms below, these are just like inverses for maps of sets, where we want cancellation of morphisms to produce the identity morphism. Note that we do not always have inverses.</p>
+<div id="def-inversemorphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.6 (Inverse morphism)</strong></span> Let <span class="math inline">\(\mathcal{C}\)</span> be a category and <span class="math inline">\(\phi :X\to Y\)</span> a morphism. Then we say that a morphism <span class="math inline">\(\psi: Y\to X\)</span> is called a right inverse of <span class="math inline">\(\phi\)</span> if <span class="math inline">\(\phi\circ \psi=\id_Y\)</span> and it is called a left inverse of <span class="math inline">\(\phi\)</span> if <span class="math inline">\(\phi\circ\psi=\id_X\)</span>. Furthermore, <span class="math inline">\(\psi\)</span> is called an inverse of <span class="math inline">\(\phi\)</span> if it is both a right and left inverse of <span class="math inline">\(\phi\)</span>.</p>
+</div>
+<p>A natural question arises, if an inverse is a morphism which is both a right and a left inverse, is it possible to have a morphism which admits both a left and right inverse which are distrinct? Of course not, below we present the same argument that one might find for an algebraic structure in which we can have left and right inverses and an associative binary operation.</p>
+<div id="prp-leftrightinverse" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.2</strong></span> Let <span class="math inline">\(\phi:X\to Y\)</span> be a morphism which admits a right inverse <span class="math inline">\(\psi:Y\to X\)</span>, and a left inverse <span class="math inline">\(\rho:Y\to X\)</span>. Then <span class="math inline">\(\psi=\rho\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We simply use the associativity of composition and the right and left inverseness. <span class="math display">\[
+\begin{aligned}
+\rho &amp;=\rho\circ\id_X=\rho\circ(\phi\circ\psi)\\
+&amp;=(\rho\circ\phi)\circ\psi=\id_Y\circ\psi=\psi
+\end{aligned}\]</span></p>
+</div>
+<p>As hinted in the group theoretic introduction, inverses give us our category theoretic definition for an isomorphism. Isomorphisms play a major role in every field, and we often classify objects up to isomorphism, as they encode objects which are essentially the same.</p>
+<div id="def-isomorphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.7 (Isomorphism)</strong></span> Let <span class="math inline">\(\mathcal{C}\)</span> be a category. We say that a morphism <span class="math inline">\(\phi\in\Mor_\mathcal{C}\)</span> is an isomorphism if there is a morphism <span class="math inline">\(\psi:\cod \phi\to \dom \phi\)</span> such that <span class="math inline">\(\psi\)</span> is an inverse of <span class="math inline">\(\phi\)</span></p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-EilMac45" class="csl-entry" role="listitem">
 Eilenberg, Samuel, and Saunders MacLane. 1945. <span>“General Theory of Natural Equivalences.”</span> <em>Trans. Amer. Math. Soc.</em> 58: 231–94. <a href="https://doi.org/10.2307/1990284">https://doi.org/10.2307/1990284</a>.
 </div>
+<div id="ref-Lein14" class="csl-entry" role="listitem">
+Leinster, Tom. 2014. <em>Basic Category Theory</em>. Vol. 143. Cambridge Studies in Advanced Mathematics. Cambridge University Press, Cambridge. <a href="https://doi.org/10.1017/CBO9781107360068">https://doi.org/10.1017/CBO9781107360068</a>.
+</div>
 </div>
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
