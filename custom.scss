@@ -1,0 +1,5 @@
+/*-- scss:rules --*/
+.proof > p:last-of-type::after {
+  content: "\25A1";
+  float: right;
+}

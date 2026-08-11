@@ -129,17 +129,17 @@ $$
 \end{aligned}$$
 :::
 
-As hinted in the group theoretic introduction, inverses give us our category theoretic definition for an isomorphism. Isomorphisms play a major role in every field, and we often classify objects up to isomorphism, as they encode objects which are essentially the same.
+Note that if $\phi$ admits a left inverse $\psi$ then $\phi$ is a right inverse of $\psi$ and conversely, if $\phi$ admits a right inverse $\psi$ then $\phi$ is a left inverse of $\psi$. Likewise, if $\phi$ admits an inverse $\psi$ then $\psi$ admits $\phi$ as an inverse, and so we can say that $\phi$ and $\psi$ are mutually inverse to each other. As hinted in the group theoretic introduction, inverses give us our category theoretic definition for an isomorphism. Isomorphisms play a major role in every field, and we often classify objects up to isomorphism, as they encode objects which are essentially the same.
 
 ::: {#def-isomorphism}
 ## Isomorphism
 Let $\mathcal{C}$ be a category. We say that a morphism $\phi\in\Hom_\mathcal{C}$ is an isomorphism if there is a morphism $\psi:\cod \phi\to \dom \phi$ such that $\psi$ is an inverse of $\phi$
 :::
 
-We tend to denote that two objects $X$ and $Y$ are isomorphic by writing $X\cong Y$. The reason that I write that two isomorphic objects are essentially the same is that their maps correspond one-to-one. If $X\cong Y$ through the isomorphism $\rho:X\to Y$, and $\phi:X\to Z$ is a morphism, then there is a morphism $\hat{\phi}:Y\to Z$ given by $\phi\circ\rho^{-1}$. Similarly, for any morphism $\psi:Y\to Z$ we have a morphism $\hat{\psi}:X\to Z$ given by $\psi\circ \rho$.
+We tend to denote that two objects $X$ and $Y$ are isomorphic by writing $X\cong Y$. The reason that I write that two isomorphic objects are essentially the same is that their maps correspond one-to-one, with a satisfactory structure.[^esssame] If $X\cong Y$ through the isomorphism $\rho:X\to Y$, and $\phi:X\to Z$ is a morphism, then there is a morphism $\hat{\phi}:Y\to Z$ given by $\phi\circ\rho^{-1}$. Similarly, for any morphism $\psi:Y\to Z$ we have a morphism $\hat{\psi}:X\to Z$ given by $\psi\circ \rho$.
 
 ::: {#prp-hombijofisom}
-Let $X\neq Y$ be isomorphic objects in a category $\mathcal{C}$, and let $\Hom X$ denote the class 
+Let $X\neq Y$ be isomorphic objects in a category $\mathcal{C}$, and let $\Hom_{\mathcal{C}} X$ denote the class 
 $$\Hom_{\mathcal{C}} X:=\{\phi\in \Hom_{\mathcal{C}}\,\vert\,\dom\phi =X \vee \cod\phi=X\}$$
 Then we obtain that there is a class bijection $\Hom_{\mathcal{C}} X \simeq \Hom_{\mathcal{C}} Y$.
 :::
@@ -150,13 +150,20 @@ $$\Hom_{\operatorname{in}} X:=\{\phi\in \Hom\,\vert\,\cod\phi=X\wedge \dom\phi\n
 $$\Hom_{\operatorname{out}} X:=\{\phi\in \Hom\,\vert\,\dom\phi =X\wedge\cod\phi\notin\{X,Y\} \}$$
 and
 $$\End_{\mathcal{C}} X :=\{\phi \in \Hom\,\vert\, \dom\phi=\cod\phi=X\}$$
-This is clearly a disjoint union of classes, therefore this describes a proper decomposition of all morphisms *touching* $X$. Similarly we decompose $\Hom_{\mathcal{C}}Y=\Hom_{\operatorname{in}} Y\cup \Hom_{\operatorname{out}} Y \cup \End_{\mathcal{C}} Y\cup \Hom_{\mathcal{C}}(X,Y) \cup \Hom_{\mathcal{C}}(Y,X)$ Now we have a class map $F_{\operatorname{out}}:\Hom_{\operatorname{out}}Y\to \Hom_{\operatorname{out}}X$ defined by $[\phi:Y\to Z]\mapsto\phi\circ \rho$.
+This is clearly a disjoint union of classes, therefore this describes a proper decomposition of all morphisms *touching* $X$. Similarly we decompose $\Hom_{\mathcal{C}}Y=\Hom_{\operatorname{in}} Y\cup \Hom_{\operatorname{out}} Y \cup \End_{\mathcal{C}} Y\cup \Hom_{\mathcal{C}}(X,Y) \cup \Hom_{\mathcal{C}}(Y,X)$.
+
+Now we have a class map $F_{\operatorname{out}}:\Hom_{\operatorname{out}}Y\to \Hom_{\operatorname{out}}X$ defined by $[\phi:Y\to Z]\mapsto\phi\circ \rho$.
 Similarly, we define $G_{\operatorname{out}}:\Hom_{\operatorname{out}}X\to \Hom_{\operatorname{out}}Y$ by sending $[\phi:X\to Z]\mapsto\phi\circ\rho^{-1}$. Now let $\phi\in\Hom_{\operatorname{out}}X$, then
 $$\begin{aligned}
-F_{\operatorname{out}}(G_{\operatorname{out}}) &= F_{\operatorname{out}}(\phi\circ \rho^{-1})=\phi\circ\rho^{-1}\circ\rho\\
+F_{\operatorname{out}}(G_{\operatorname{out}}(\phi)) &= F_{\operatorname{out}}(\phi\circ \rho^{-1})=\phi\circ\rho^{-1}\circ\rho\\
 &=\phi\circ(\rho^{-1}\circ\rho)=\phi\circ\id_X=\phi
 \end{aligned}$$
- By such, $F_{\operatorname{out}}$ and $G_{\operatorname{out}}$ are mutually inverse. In the same manner we have that there are class maps $F_{\operatorname{in}}:\Hom_{\operatorname{in}}Y\to \Hom_{\operatorname{in}}X$ defined by $\phi\to \rho^{-1}\circ \phi$ and $G_{\operatorname{in}}:\Hom_{\operatorname{in}}X\to \Hom_{\operatorname{in}}Y$ defined by $\phi\to \rho\circ \phi$ such that $F_{\operatorname{in}}$ and $G_{\operatorname{in}}$ are mutually inverse.
+On the other hand, for any $\phi\in \Hom_{\operatorname{out}}Y$ we have
+$$\begin{aligned}
+G_{\operatorname{out}}(F_{\operatorname{out}}(\phi)) &= G_{\operatorname{out}}(\phi\circ \rho)=\phi\circ\rho\circ\rho^{-1}\\
+&=\phi\circ(\rho\circ\rho^{-1})=\phi\circ\id_Y=\phi
+\end{aligned}$$
+By such, $F_{\operatorname{out}}$ and $G_{\operatorname{out}}$ are mutually inverse. In the same manner we have that there are class maps $F_{\operatorname{in}}:\Hom_{\operatorname{in}}Y\to \Hom_{\operatorname{in}}X$ defined by $\phi\to \rho^{-1}\circ \phi$ and $G_{\operatorname{in}}:\Hom_{\operatorname{in}}X\to \Hom_{\operatorname{in}}Y$ defined by $\phi\to \rho\circ \phi$ such that $F_{\operatorname{in}}$ and $G_{\operatorname{in}}$ are mutually inverse.
 
 Now consider the maps $I:\End_\mathcal{C} X\to \End_\mathcal{C} Y$ defined by $[\phi:X\to X]\mapsto\rho\circ\phi\circ\rho^{-1}$ and $J:\End_\mathcal{C} Y\to \End_\mathcal{C} X$ defined by $[\phi:Y\to Y]\mapsto\rho^{-1}\circ\phi\circ\rho$. Then we have for any $\phi\in \End_{\mathcal{C}}X$
 $$\begin{aligned}
@@ -174,13 +181,16 @@ G_{\operatorname{out}} (\phi) & \phi\in\Hom_{\operatorname{out}}X\\
 G_{\operatorname{in}}(\phi) & \phi\in \Hom_{\operatorname{in}}X\\
 I(\phi) & \phi\in \End_{\mathcal{C}}X
 \end{cases}$$
-Furhtermore, we define the map $\Psi: \Hom_\mathcal{C}Y\to \Hom_\mathcal{C}X$ by
+Furthermore, we define the map $\Psi: \Hom_\mathcal{C}Y\to \Hom_\mathcal{C}X$ by
 $$\phi\mapsto\begin{cases}
 \phi & \phi\in \Hom_\mathcal{C} (X,Y)\cup\Hom_\mathcal{C}(Y,X)\\
 F_{\operatorname{out}} (\phi) & \phi\in\Hom_{\operatorname{out}}Y\\
 F_{\operatorname{in}}(\phi) & \phi\in \Hom_{\operatorname{in}}Y\\
 J(\phi) & \phi\in \End_{\mathcal{C}}Y
 \end{cases}$$
+From the constructions of $F_{\operatorname{out}}, G_{\operatorname{out}}, F_{\operatorname{in}}, G_{\operatorname{in}}, I$ and $J$ we obtain that $\Phi$ and $\Phi$ are mutually inverse.
 :::
 
 [^defdiff]: In particular the domain and codomain maps do not appear in the definition from Eilenberg and MacLane, and the axioms instead give rise to a result which states that each morphim $\phi$ admits exactly one identity $\id_X$ such that $\phi\circ\id_X$ is defined, and exactly one identity $\id_Y$ such that $\id_Y\circ\phi$ is well defined. Then $X$ is the domain and $Y$ is the codomain.
+
+[^esssame]: The bijectivity is not the only important part and does not by itself imply that the two objects are essentially the same. The picture which we present here is incomplete, indeed these $\Hom$ classes can be bijective even if the objects are not isomorphic. However, the following proposition does give us some insight on how the morphisms of two isomorphic objects correspond with each other. The structure of equivalence comes from the fact that something called a natural isomorphism arises, however this is something which we will explore later. A natural transformation is an object that is outlined in the introduction in [@EilMac45] which partially motivates the development of category theory.

@@ -23,6 +23,7 @@ format:
     theme:
       - cosmo
       - brand
+      - custom.scss
     html-math-method:
       method: mathjax
       url: ./mathjax/tex-chtml.js
