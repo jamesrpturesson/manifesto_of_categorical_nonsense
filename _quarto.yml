@@ -11,6 +11,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - functors.qmd
     - summary.qmd
     - references.qmd
 
@@ -39,6 +40,8 @@ format:
                 dom:  "\\operatorname{dom}",
                 cod:  "\\operatorname{cod}",
                 id:  "\\operatorname{id}",
+                Hom: "\\operatorname{Hom}",
+                End: "\\operatorname{End}",
                 Spec:  "\\operatorname{Spec}",
                 supp:  "\\operatorname{supp}",
                 RR:    "\\mathbb{R}",

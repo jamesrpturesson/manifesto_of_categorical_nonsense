@@ -34,13 +34,13 @@ Group homomorphisms are verily stronger than a simple map on the underlying sets
 Let $G$ be a group and consider tha mapping $\id_G :G\to G$ which is defined by $g\mapsto g$. This clearly forms a group homomorphism as both domain and codomain posess the same group operation. 
 :::
 
-Every structure should give rise to identity maps, the example above gives each group an identity homomorphism, for vector spaces we have the identity matrices, for topological spaces we have the identity map. They all posses the same intuitive quality, identities change nothing, the structure which arises from the image of the identity is the same as the structure of the domain on which it acts. This notion becomes more tangible when we discuss about the composition of maps. Note that a group homomorphism $\phi$ has a source group $G$ and a target group $H$ called the domain and codomain respectively, and these groups encode which other homomorphisms can be used in composition with $\phi$. We denote the domain of a group homomorphism $\phi$ by $\dom\phi$ and the codomain by $\cod\phi$. Let $\Mor_{\Grp}$ denote the class of all group homomorphism, and let $\Mor_{\Grp} \times_{\Grp}\Mor_{\Grp}$ denote the set
-$$\{(\psi, \phi)\in \Mor_{\Grp} \times\Mor_{\Grp}\,\vert\, \cod\phi=\dom\psi \}$$
+Every structure should give rise to identity maps, the example above gives each group an identity homomorphism, for vector spaces we have the identity matrices, for topological spaces we have the identity map. They all posses the same intuitive quality, identities change nothing, the structure which arises from the image of the identity is the same as the structure of the domain on which it acts. This notion becomes more tangible when we discuss about the composition of maps. Note that a group homomorphism $\phi$ has a source group $G$ and a target group $H$ called the domain and codomain respectively, and these groups encode which other homomorphisms can be used in composition with $\phi$. We denote the domain of a group homomorphism $\phi$ by $\dom\phi$ and the codomain by $\cod\phi$. Let $\Hom_{\Grp}$ denote the class of all group homomorphism, and let $\Hom_{\Grp} \times_{\Grp}\Hom_{\Grp}$ denote the set
+$$\{(\psi, \phi)\in \Hom_{\Grp} \times\Hom_{\Grp}\,\vert\, \cod\phi=\dom\psi \}$$
 Then we define the composition operation on the class of group homomorphisms.
 
 ::: {#def-grouphomcomp}
 ## Composition of group homomorphism
-The class function $\circ : \Mor_{\Grp} \times_{\Grp}\Mor_{\Grp}\to \Mor_{\Grp}$ defined by $(\psi,\phi)\mapsto [x\mapsto \psi (\phi(x))]$ is called the composition map of group homomorphisms. We denote $\circ (\psi, \phi)$ by $\psi\circ\phi$.
+The class function $\circ : \Hom_{\Grp} \times_{\Grp}\Hom_{\Grp}\to \Hom_{\Grp}$ defined by $(\psi,\phi)\mapsto [x\mapsto \psi (\phi(x))]$ is called the composition map of group homomorphisms. We denote $\circ (\psi, \phi)$ by $\psi\circ\phi$.
 :::
 
 I agree with the sentient that the tedium here is excesssive and is not necessary in forming an understanding of group theory, however, I believe this view of composition will aid in understanding the generalisation which we present in category theory. The mappings in category theory (which will be called morphisms) are in general far more abstract. We might not be able to speak of images of single points in a domain, nor would we be able to speak of if a point is a member of the kernel or not. These abstracted properties are instead presented by the structures of morphisms in relation to each other and through composition. That being said, we will examine how the composition of group homomorphisms work by doing it element wise.
@@ -87,25 +87,25 @@ We now introduce the titular concept, the category. We want to abstract the feat
 
 ::: {#def-category}
 ## Category
-A category $\mathcal{C}$ consists of a pair of classes $(\Ob, \Mor)$, a pair of class functions $\dom, \cod:\Mor\to \Ob$ and a class function
-$$\circ: \Mor\times_{\Ob}\Mor\to \Mor$$
-where $$\Mor\times_{\Ob}\Mor:=\{(\psi,\phi)\in \Mor\times \Mor\,\vert\,\dom \psi=\cod \phi\}$$
+A category $\mathcal{C}$ consists of a pair of classes $(\Ob, \Hom)$, a pair of class functions $\dom, \cod:\Hom\to \Ob$ and a class function
+$$\circ: \Hom\times_{\Ob}\Hom\to \Hom$$
+where $$\Hom\times_{\Ob}\Hom:=\{(\psi,\phi)\in \Hom\times \Hom\,\vert\,\dom \psi=\cod \phi\}$$
 which satisfy the following axioms. Note that here we write $\psi\circ \phi$ instead of $\circ (\psi, \phi)$.
 
 ::: {.axioms}
-#. For any two elements $(\psi,\phi)\in \Mor\times_{\Ob} \Mor$ we have $\dom (\psi\circ\phi)=\dom \phi$ and $\cod (\psi\circ\phi)=\cod \psi$.
-#. For elements $\phi, \psi, \rho\in \Mor$ such that $\psi\circ\phi$ and $\rho\circ \psi$ are well defined we have that
+#. For any two elements $(\psi,\phi)\in \Hom\times_{\Ob} \Hom$ we have $\dom (\psi\circ\phi)=\dom \phi$ and $\cod (\psi\circ\phi)=\cod \psi$.
+#. For elements $\phi, \psi, \rho\in \Hom$ such that $\psi\circ\phi$ and $\rho\circ \psi$ are well defined we have that
 $$\rho\circ (\psi\circ\phi)=(\rho\circ\psi)\circ \phi$$
-#. For each $X\in \Ob$ there exists an element $\id_X\in \Mor$ with $\dom \id_X = \cod \id_X=X$ such that we have
+#. For each $X\in \Ob$ there exists an element $\id_X\in \Hom$ with $\dom \id_X = \cod \id_X=X$ such that we have
 $$\id_X\circ \phi= \phi$$
-for all $\phi\in\Mor$ with $\cod \phi = X$, and
+for all $\phi\in\Hom$ with $\cod \phi = X$, and
  $$\psi\circ \id_X=\psi$$
-for all $\psi\in\Mor$ with $\dom \psi = X$.
+for all $\psi\in\Hom$ with $\dom \psi = X$.
 :::
 
 :::
 
-We refer to the members of $\Ob$ as objects and members of $\Mor$ as morphisms. We tend to abuse the notation here and write $X\in \mathcal{C}$ for an object $X$. Additionally, we often give morphisms $\phi :X\to Y$, in the same manner as for the structures which we are use to, to mean that $\phi\in\Mor$, and $X$ and $Y$ are objects such that $\dom\phi = X$ and $\cod\phi =Y$. When we are working with multiple categories we might distinguish the object and morphism classes by subscripts, such as $\Ob_\mathcal{C}$ for the object class of $\mathcal{C}$ or $\Mor_\mathcal{A}$ for the morphism class of $\mathcal{A}$. The definition above differs from that given by [@EilMac45],[^defdiff] here i favour a modified version of the definition given by [@Lein14] as it avoids having to deal with the, in my opinion, convoluted handling of domain and codomain, and identities. The presentation which I have given here is more in line with what is usually presented in an introduction to category theory, in my experience.
+We refer to the members of $\Ob$ as objects and members of $\Hom$ as morphisms. We tend to abuse the notation here and write $X\in \mathcal{C}$ for an object $X$. Additionally, we often give morphisms $\phi :X\to Y$, in the same manner as for the structures which we are use to, to mean that $\phi\in\Hom$, and $X$ and $Y$ are objects such that $\dom\phi = X$ and $\cod\phi =Y$. When we are working with multiple categories we might distinguish the object and morphism classes by subscripts, such as $\Ob_\mathcal{C}$ for the object class of $\mathcal{C}$ or $\Hom_\mathcal{A}$ for the morphism class of $\mathcal{A}$. For any two objects $X,Y\in \Ob$ we denote the class of morphisms with domain $X$ and codomain $Y$ by $\Hom_{\mathcal{C}}(X,Y)$. The definition above differs from that given by [@EilMac45],[^defdiff] here i favour a modified version of the definition given by [@Lein14] as it avoids having to deal with the, in my opinion, convoluted handling of domain and codomain, and identities. The presentation which I have given here is more in line with what is usually presented in an introduction to category theory, in my experience.
 
 For each object $X\in \mathcal{C}$ we call the morphism $\id_X:X\to X$ the identity at $X$. In the same manner which one would prove that the group identity is unique we of course obtain that the identity at each object is unique. We give the definition of inverse morphisms below, these are just like inverses for maps of sets, where we want cancellation of morphisms to produce the identity morphism. Note that we do not always have inverses.
 
@@ -114,7 +114,7 @@ For each object $X\in \mathcal{C}$ we call the morphism $\id_X:X\to X$ the ident
 Let $\mathcal{C}$ be a category and $\phi :X\to Y$ a morphism. Then we say that a morphism $\psi: Y\to X$ is called a right inverse of $\phi$ if $\phi\circ \psi=\id_Y$ and it is called a left inverse of $\phi$ if $\phi\circ\psi=\id_X$. Furthermore, $\psi$ is called an inverse of $\phi$ if it is both a right and left inverse of $\phi$. 
 :::
 
-A natural question arises, if an inverse is a morphism which is both a right and a left inverse, is it possible to have a morphism which admits both a left and right inverse which are distrinct? Of course not, below we present the same argument that one might find for an algebraic structure in which we can have left and right inverses and an associative binary operation.
+We denote the inverse of $\phi$, when it exists, by $\phi^{-1}$. A natural question arises, if an inverse is a morphism which is both a right and a left inverse, is it possible to have a morphism which admits both a left and right inverse which are distrinct? Of course not, below we present the same argument that one might find for an algebraic structure in which we can have left and right inverses and an associative binary operation.
 
 ::: {#prp-leftrightinverse}
 Let $\phi:X\to Y$ be a morphism which admits a right inverse $\psi:Y\to X$, and a left inverse $\rho:Y\to X$. Then $\psi=\rho$.
@@ -133,9 +133,54 @@ As hinted in the group theoretic introduction, inverses give us our category the
 
 ::: {#def-isomorphism}
 ## Isomorphism
-Let $\mathcal{C}$ be a category. We say that a morphism $\phi\in\Mor_\mathcal{C}$ is an isomorphism if there is a morphism $\psi:\cod \phi\to \dom \phi$ such that $\psi$ is an inverse of $\phi$
+Let $\mathcal{C}$ be a category. We say that a morphism $\phi\in\Hom_\mathcal{C}$ is an isomorphism if there is a morphism $\psi:\cod \phi\to \dom \phi$ such that $\psi$ is an inverse of $\phi$
 :::
 
+We tend to denote that two objects $X$ and $Y$ are isomorphic by writing $X\cong Y$. The reason that I write that two isomorphic objects are essentially the same is that their maps correspond one-to-one. If $X\cong Y$ through the isomorphism $\rho:X\to Y$, and $\phi:X\to Z$ is a morphism, then there is a morphism $\hat{\phi}:Y\to Z$ given by $\phi\circ\rho^{-1}$. Similarly, for any morphism $\psi:Y\to Z$ we have a morphism $\hat{\psi}:X\to Z$ given by $\psi\circ \rho$.
 
+::: {#prp-hombijofisom}
+Let $X\neq Y$ be isomorphic objects in a category $\mathcal{C}$, and let $\Hom X$ denote the class 
+$$\Hom_{\mathcal{C}} X:=\{\phi\in \Hom_{\mathcal{C}}\,\vert\,\dom\phi =X \vee \cod\phi=X\}$$
+Then we obtain that there is a class bijection $\Hom_{\mathcal{C}} X \simeq \Hom_{\mathcal{C}} Y$.
+:::
+
+::: {.proof}
+Let $\rho: X\to Y$ be an isomorphism between $X$ and $Y$, it admits the inverse $\rho^{-1}$ by definition. Note that we can express $\Hom_{\mathcal{C}} X$ as the union $\Hom_{\operatorname{in}} X\cup \Hom_{\operatorname{out}} X \cup \End_{\mathcal{C}} X\cup \Hom_{\mathcal{C}}(X,Y) \cup \Hom_{\mathcal{C}}(Y,X)$ where
+$$\Hom_{\operatorname{in}} X:=\{\phi\in \Hom\,\vert\,\cod\phi=X\wedge \dom\phi\not\in \{X,Y\}\}$$
+$$\Hom_{\operatorname{out}} X:=\{\phi\in \Hom\,\vert\,\dom\phi =X\wedge\cod\phi\notin\{X,Y\} \}$$
+and
+$$\End_{\mathcal{C}} X :=\{\phi \in \Hom\,\vert\, \dom\phi=\cod\phi=X\}$$
+This is clearly a disjoint union of classes, therefore this describes a proper decomposition of all morphisms *touching* $X$. Similarly we decompose $\Hom_{\mathcal{C}}Y=\Hom_{\operatorname{in}} Y\cup \Hom_{\operatorname{out}} Y \cup \End_{\mathcal{C}} Y\cup \Hom_{\mathcal{C}}(X,Y) \cup \Hom_{\mathcal{C}}(Y,X)$ Now we have a class map $F_{\operatorname{out}}:\Hom_{\operatorname{out}}Y\to \Hom_{\operatorname{out}}X$ defined by $[\phi:Y\to Z]\mapsto\phi\circ \rho$.
+Similarly, we define $G_{\operatorname{out}}:\Hom_{\operatorname{out}}X\to \Hom_{\operatorname{out}}Y$ by sending $[\phi:X\to Z]\mapsto\phi\circ\rho^{-1}$. Now let $\phi\in\Hom_{\operatorname{out}}X$, then
+$$\begin{aligned}
+F_{\operatorname{out}}(G_{\operatorname{out}}) &= F_{\operatorname{out}}(\phi\circ \rho^{-1})=\phi\circ\rho^{-1}\circ\rho\\
+&=\phi\circ(\rho^{-1}\circ\rho)=\phi\circ\id_X=\phi
+\end{aligned}$$
+ By such, $F_{\operatorname{out}}$ and $G_{\operatorname{out}}$ are mutually inverse. In the same manner we have that there are class maps $F_{\operatorname{in}}:\Hom_{\operatorname{in}}Y\to \Hom_{\operatorname{in}}X$ defined by $\phi\to \rho^{-1}\circ \phi$ and $G_{\operatorname{in}}:\Hom_{\operatorname{in}}X\to \Hom_{\operatorname{in}}Y$ defined by $\phi\to \rho\circ \phi$ such that $F_{\operatorname{in}}$ and $G_{\operatorname{in}}$ are mutually inverse.
+
+Now consider the maps $I:\End_\mathcal{C} X\to \End_\mathcal{C} Y$ defined by $[\phi:X\to X]\mapsto\rho\circ\phi\circ\rho^{-1}$ and $J:\End_\mathcal{C} Y\to \End_\mathcal{C} X$ defined by $[\phi:Y\to Y]\mapsto\rho^{-1}\circ\phi\circ\rho$. Then we have for any $\phi\in \End_{\mathcal{C}}X$
+$$\begin{aligned}
+J(I(\phi)) &=\rho^{-1}\circ I(\phi)\circ \rho\\
+&= \rho^{-1}\circ(\rho\circ \phi\circ\rho^{-1})\circ \rho=(\rho^{-1}\circ\rho)\circ \phi\circ(\rho^{-1}\circ \rho)\\
+&=\id_X\circ\phi\circ\id_X=\phi
+\end{aligned}
+$$
+A similar calculation gives $I(J(\phi))=\phi$, for any $\phi\in\End_\mathcal{C} Y$.
+
+Now we obtain a piecewise class map $\Phi: \Hom_\mathcal{C}X\to \Hom_\mathcal{C}Y$ defined by
+$$\phi\mapsto\begin{cases}
+\phi & \phi\in \Hom_\mathcal{C} (X,Y)\cup\Hom_\mathcal{C}(Y,X)\\
+G_{\operatorname{out}} (\phi) & \phi\in\Hom_{\operatorname{out}}X\\
+G_{\operatorname{in}}(\phi) & \phi\in \Hom_{\operatorname{in}}X\\
+I(\phi) & \phi\in \End_{\mathcal{C}}X
+\end{cases}$$
+Furhtermore, we define the map $\Psi: \Hom_\mathcal{C}Y\to \Hom_\mathcal{C}X$ by
+$$\phi\mapsto\begin{cases}
+\phi & \phi\in \Hom_\mathcal{C} (X,Y)\cup\Hom_\mathcal{C}(Y,X)\\
+F_{\operatorname{out}} (\phi) & \phi\in\Hom_{\operatorname{out}}Y\\
+F_{\operatorname{in}}(\phi) & \phi\in \Hom_{\operatorname{in}}Y\\
+J(\phi) & \phi\in \End_{\mathcal{C}}Y
+\end{cases}$$
+:::
 
 [^defdiff]: In particular the domain and codomain maps do not appear in the definition from Eilenberg and MacLane, and the axioms instead give rise to a result which states that each morphim $\phi$ admits exactly one identity $\id_X$ such that $\phi\circ\id_X$ is defined, and exactly one identity $\id_Y$ such that $\id_Y\circ\phi$ is well defined. Then $X$ is the domain and $Y$ is the codomain.
