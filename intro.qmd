@@ -191,7 +191,22 @@ J(\phi) & \phi\in \End_{\mathcal{C}}Y
 From the constructions of $F_{\operatorname{out}}, G_{\operatorname{out}}, F_{\operatorname{in}}, G_{\operatorname{in}}, I$ and $J$ we obtain that $\Phi$ and $\Phi$ are mutually inverse.
 :::
 
-Subcategories
+### Unfinished
+
+::: {#def-subcategory}
+## Subcategory
+Let $\mathcal{C}$ be a category. We say that a category $\mathcal{D}$ is a subcategory of $\mathcal{C}$ if $\Ob_\mathcal{D}$ is a subclass of $\Ob_{\mathcal{C}}$, $\Hom_\mathcal{D}$ is a subclass of $\Hom_{\mathcal{C}}$ with $\dom_\mathcal{D}=\dom_\mathcal{C}\vert_{\Hom_\mathcal{D}}$, $\cod_\mathcal{D}=\cod_\mathcal{C}\vert_{\Hom_\mathcal{D}}$, $\circ_{\mathcal{D}}=\circ_{\mathcal{C}}\vert_{\Hom_\mathcal{D} \times_{\Ob_{\mathcal{D}}}\Hom_{\mathcal{D}}}$, and $\id_X^{\mathcal{D}}=\id_X^{\mathcal{C}}$ for all $X\in\mathcal{D}$.
+:::
+
+Equivalently, given a subclass $\Ob_\mathcal{D}$ of $\Ob_\mathcal{C}$ and a subclass $\Hom_{\mathcal{D}}$ of $\Hom_\mathcal{C}$ we have a subcategory $\mathcal{D}$ with object class $\Ob_{\mathcal{D}}$ and morphism class $\Hom_{\mathcal{D}}$ if the image of $\Hom_{\mathcal{D}}\times_{\Ob_\mathcal{C}} \Hom_{\mathcal{D}}$ under $\circ_{\mathcal{C}}$ is in $\Hom_{\mathcal{D}}$, and $\id_X\in\Hom_{\mathcal{D}}$ for all $X\in \mathcal{D}$. That is to say that $\mathcal{D}$ is closed under composition and identities.
+
+::: {#exm-exmsubcat}
+#. Let $\mathcal{C}$ be a category, then we can form a subcategory $\mathcal{D}\subseteq\mathcal{C}$ by letting $\mathcal{D}$ be the discrete category with objects $\Ob_{\mathcal{C}}$, this is a wide subcategory.
+#. Consider the category of groups $\Grp$, then the category of Abelian Groups $\AbGrp$ is a full subcategory of $\Grp$.
+#. For the category of vector spaces $\Vect$ we can construct a full subcategory whose objects are the finite dimensional vector spaces.
+#. For any category $\mathcal{C}$ and an object $X\in \mathcal{C}$ we can create the full subcategory $\mathcal{C}_X$ consisting all objects $Y$ for which there is a morphism $\phi\in \Hom_\mathcal{C}$ with $Y=\dom\phi$ and $X=\cod \phi$ or $Y=\cod \phi$ and $X=\dom \phi$.
+#. subgroup group category.
+:::
 
 We now turn to some simple examples of categories to conclude this brief introduction. Before reading these, contemplate for a moment the different structures you have encountered previously. Are they sets with added structure? What structural properties do the maps possess, and how do they compose with each other? What do the identities look like and when do morphisms admit inverses? 
 

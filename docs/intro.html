@@ -101,6 +101,11 @@ window.MathJax = {
       norm:  ["\\left\\lVert #1 \\right\\rVert", 1],
       abs:   ["\\left\\lvert #1 \\right\\rvert", 1],
       ip:    ["\\langle #1, #2 \\rangle", 2],
+      Grp:  "\\operatorname{Grp}",
+      AbGrp:  "\\operatorname{AbGrp}",
+      Set:  "\\operatorname{Set}",
+      Top:  "\\operatorname{Top}",
+      Vect:  "\\operatorname{Vect}",
       Ob:  "\\operatorname{Ob}",
       Mor:  "\\operatorname{Mor}",
       dom:  "\\operatorname{dom}",
@@ -220,7 +225,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#abstracting-groups" id="toc-abstracting-groups" class="nav-link active" data-scroll-target="#abstracting-groups"><span class="header-section-number">1.1</span> Abstracting groups</a></li>
-  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link" data-scroll-target="#our-first-category"><span class="header-section-number">1.2</span> Our first category</a></li>
+  <li><a href="#our-first-category" id="toc-our-first-category" class="nav-link" data-scroll-target="#our-first-category"><span class="header-section-number">1.2</span> Our first category</a>
+  <ul class="collapse">
+  <li><a href="#unfinished" id="toc-unfinished" class="nav-link" data-scroll-target="#unfinished"><span class="header-section-number">1.2.1</span> Unfinished</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -355,7 +363,22 @@ F_{\operatorname{in}}(\phi) &amp; \phi\in \Hom_{\operatorname{in}}Y\\
 J(\phi) &amp; \phi\in \End_{\mathcal{C}}Y
 \end{cases}\]</span> From the constructions of <span class="math inline">\(F_{\operatorname{out}}, G_{\operatorname{out}}, F_{\operatorname{in}}, G_{\operatorname{in}}, I\)</span> and <span class="math inline">\(J\)</span> we obtain that <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(\Phi\)</span> are mutually inverse.</p>
 </div>
-<p>Subcategories</p>
+<section id="unfinished" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="unfinished"><span class="header-section-number">1.2.1</span> Unfinished</h3>
+<div id="def-subcategory" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.8 (Subcategory)</strong></span> Let <span class="math inline">\(\mathcal{C}\)</span> be a category. We say that a category <span class="math inline">\(\mathcal{D}\)</span> is a subcategory of <span class="math inline">\(\mathcal{C}\)</span> if <span class="math inline">\(\Ob_\mathcal{D}\)</span> is a subclass of <span class="math inline">\(\Ob_{\mathcal{C}}\)</span>, <span class="math inline">\(\Hom_\mathcal{D}\)</span> is a subclass of <span class="math inline">\(\Hom_{\mathcal{C}}\)</span> with <span class="math inline">\(\dom_\mathcal{D}=\dom_\mathcal{C}\vert_{\Hom_\mathcal{D}}\)</span>, <span class="math inline">\(\cod_\mathcal{D}=\cod_\mathcal{C}\vert_{\Hom_\mathcal{D}}\)</span>, <span class="math inline">\(\circ_{\mathcal{D}}=\circ_{\mathcal{C}}\vert_{\Hom_\mathcal{D} \times_{\Ob_{\mathcal{D}}}\Hom_{\mathcal{D}}}\)</span>, and <span class="math inline">\(\id_X^{\mathcal{D}}=\id_X^{\mathcal{C}}\)</span> for all <span class="math inline">\(X\in\mathcal{D}\)</span>.</p>
+</div>
+<p>Equivalently, given a subclass <span class="math inline">\(\Ob_\mathcal{D}\)</span> of <span class="math inline">\(\Ob_\mathcal{C}\)</span> and a subclass <span class="math inline">\(\Hom_{\mathcal{D}}\)</span> of <span class="math inline">\(\Hom_\mathcal{C}\)</span> we have a subcategory <span class="math inline">\(\mathcal{D}\)</span> with object class <span class="math inline">\(\Ob_{\mathcal{D}}\)</span> and morphism class <span class="math inline">\(\Hom_{\mathcal{D}}\)</span> if the image of <span class="math inline">\(\Hom_{\mathcal{D}}\times_{\Ob_\mathcal{C}} \Hom_{\mathcal{D}}\)</span> under <span class="math inline">\(\circ_{\mathcal{C}}\)</span> is in <span class="math inline">\(\Hom_{\mathcal{D}}\)</span>, and <span class="math inline">\(\id_X\in\Hom_{\mathcal{D}}\)</span> for all <span class="math inline">\(X\in \mathcal{D}\)</span>. That is to say that <span class="math inline">\(\mathcal{D}\)</span> is closed under composition and identities.</p>
+<div id="exm-exmsubcat" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.3</strong></span> &nbsp;</p>
+<ol>
+<li>Let <span class="math inline">\(\mathcal{C}\)</span> be a category, then we can form a subcategory <span class="math inline">\(\mathcal{D}\subseteq\mathcal{C}\)</span> by letting <span class="math inline">\(\mathcal{D}\)</span> be the discrete category with objects <span class="math inline">\(\Ob_{\mathcal{C}}\)</span>, this is a wide subcategory.</li>
+<li>Consider the category of groups <span class="math inline">\(\Grp\)</span>, then the category of Abelian Groups <span class="math inline">\(\AbGrp\)</span> is a full subcategory of <span class="math inline">\(\Grp\)</span>.</li>
+<li>For the category of vector spaces <span class="math inline">\(\Vect\)</span> we can construct a full subcategory whose objects are the finite dimensional vector spaces.</li>
+<li>For any category <span class="math inline">\(\mathcal{C}\)</span> and an object <span class="math inline">\(X\in \mathcal{C}\)</span> we can create the full subcategory <span class="math inline">\(\mathcal{C}_X\)</span> consisting all objects <span class="math inline">\(Y\)</span> for which there is a morphism <span class="math inline">\(\phi\in \Hom_\mathcal{C}\)</span> with <span class="math inline">\(Y=\dom\phi\)</span> and <span class="math inline">\(X=\cod \phi\)</span> or <span class="math inline">\(Y=\cod \phi\)</span> and <span class="math inline">\(X=\dom \phi\)</span>.</li>
+<li>subgroup group category.</li>
+</ol>
+</div>
 <p>We now turn to some simple examples of categories to conclude this brief introduction. Before reading these, contemplate for a moment the different structures you have encountered previously. Are they sets with added structure? What structural properties do the maps possess, and how do they compose with each other? What do the identities look like and when do morphisms admit inverses?</p>
 
 
@@ -367,6 +390,7 @@ Eilenberg, Samuel, and Saunders MacLane. 1945. <span>“General Theory of Natura
 Leinster, Tom. 2014. <em>Basic Category Theory</em>. Vol. 143. Cambridge Studies in Advanced Mathematics. Cambridge University Press, Cambridge. <a href="https://doi.org/10.1017/CBO9781107360068">https://doi.org/10.1017/CBO9781107360068</a>.
 </div>
 </div>
+</section>
 </section>
 
 
