@@ -1,1 +1,18 @@
 # Functors
+
+We have seen how categories exhibit different structures, which is encoded by the morphisms of the category. We can have subcategories where we reduce the number of morphisms and keep the objects the same, allowing certain properties to emerge. Consider for example topological spaces, each space has an underlying set $X$ and a topology $\tau_X$, we form a category with the topological spaces as the objects. For morphisms we can choose for example the continuous maps as they carry meaningful information about the topologies. However, we could also choose to disregard topology entirely and have the morphisms be all possible set maps, of which the continuous maps are a subclass. Here we obtain two different categories with the same objects, one a subcategory of the other, and the structural properties which emerge may be completely different. We can then form a "map" from the topological category with continuous maps to the topological category with set maps, along the inclusion of the morphism classes. As one would maybe expect, the second category here is too coarse and retains no meaningful information about the topologies. Indeed the isomorphisms in the first category are given by homeomorphisms (continuous bijections which have a continuous inverse), however the isomorphisms in the second category would be given by any bijection. In this sense we see how choosing a morphism class which is too broad can lead to diluting the concept of sameness in a category. These "maps" between categories will allow for the study of "sameness" between categories as well as other relationships between categories, and will become an essential tool in evaluating certain structures and properties throughout category theory. These are called functors.
+
+::: {#def-functor}
+## Functor
+Let $\mathcal{C}$ and $\mathcal{D}$ be two categories. A functor $F$ from $\mathcal{C}$ to $\mathcal{D}$ consists of a map $F_{\Ob}:\Ob_\mathcal{C}\to \Ob_{\mathcal{D}}$ and a map $F_{\Hom}:\Hom_\mathcal{C}\to \Hom_\mathcal{D}$ such that the following are satisfied.
+
+:::{.axioms}
+#. For any $\phi\in\Hom_\mathcal{C}$ we have $\dom F_{\Hom}(\phi)=F_{\Ob}(\dom \phi)$ and $\cod F_{\Hom}(\phi)=F_{\Ob}(\cod \phi)$.
+#. For any $\phi,\psi\in \Hom_\mathcal{C}$ such that $\psi\circ\phi$ is defined we have
+$$F_{\Hom}(\psi\circ\phi)=F_{\Hom}(\psi)\circ F_{\Hom}(\phi)$$
+#. For each object $X\in \mathcal{C}$ we have that $F_{\Hom}(\id_X)=\id_{F_{\Ob}(X)}$.
+:::
+
+:::
+
+We drop the notation of subscripts on functors as we always make it clear when we are applying the functor to a morphism or an object. Furthermore, for a functor from a category $\mathcal{C}$ to a category $\mathcal{D}$ we may write $F:\mathcal{C}\to \mathcal{D}$.

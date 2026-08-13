@@ -191,6 +191,10 @@ J(\phi) & \phi\in \End_{\mathcal{C}}Y
 From the constructions of $F_{\operatorname{out}}, G_{\operatorname{out}}, F_{\operatorname{in}}, G_{\operatorname{in}}, I$ and $J$ we obtain that $\Phi$ and $\Phi$ are mutually inverse.
 :::
 
+Subcategories
+
+We now turn to some simple examples of categories to conclude this brief introduction. Before reading these, contemplate for a moment the different structures you have encountered previously. Are they sets with added structure? What structural properties do the maps possess, and how do they compose with each other? What do the identities look like and when do morphisms admit inverses? 
+
 [^defdiff]: In particular the domain and codomain maps do not appear in the definition from Eilenberg and MacLane, and the axioms instead give rise to a result which states that each morphim $\phi$ admits exactly one identity $\id_X$ such that $\phi\circ\id_X$ is defined, and exactly one identity $\id_Y$ such that $\id_Y\circ\phi$ is well defined. Then $X$ is the domain and $Y$ is the codomain.
 
 [^esssame]: The bijectivity is not the only important part and does not by itself imply that the two objects are essentially the same. The picture which we present here is incomplete, indeed these $\Hom$ classes can be bijective even if the objects are not isomorphic. However, the following proposition does give us some insight on how the morphisms of two isomorphic objects correspond with each other. The structure of equivalence comes from the fact that something called a natural isomorphism arises, however this is something which we will explore later. A natural transformation is an object that is outlined in the introduction in [@EilMac45] which partially motivates the development of category theory.

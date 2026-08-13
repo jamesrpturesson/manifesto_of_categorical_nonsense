@@ -5,20 +5,22 @@ project:
     - mathjax/**
 
 book:
-  title: "Manifesto Of Categorical Nonsense"
+  title: "The Manifesto of Categorical Nonsense"
   author: "James R. P. Turesson"
   date: last-modified
   chapters:
     - index.qmd
     - intro.qmd
     - functors.qmd
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib
 
 format:
   html:
+    mainfont: "Palatino, Georgia, serif"
+    fontsize: 1.05em
+    linestretch: 1.7
     reference-location: margin
     theme:
       - cosmo
