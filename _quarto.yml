@@ -54,10 +54,18 @@ format:
                 supp:  "\\operatorname{supp}",
                 RR:    "\\mathbb{R}",
                 CC:    "\\mathbb{C}",
+                ZZ:    "\\mathbb{Z}",
                 Hzero: "H^1_0",
-                Grp: "\\operatorname{Grp}"
               }
             }
           };
           </script>
+#  pdf:
+#    documentclass: scrbook
+#    papersize: a4
+#    geometry:
+#      - margin=3.2cm
+#    include-in-header:
+#      - macros.tex
+#    keep-tex: true
 

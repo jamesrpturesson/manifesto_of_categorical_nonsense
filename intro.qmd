@@ -81,7 +81,7 @@ This will likely not have been anything new to the reader, however if you have n
 
 Finally, I would like to bring our attention to subgroups. Recall that a subset $H$ of a group $G$ is called a subgroup if $H$ forms a group with respect to the group operation $\ast_G$. Equivalently, a nonempty subset $H$ is a subgroup if it is closed under $\ast_G$ and inverses. Generally, algebraic structures have underlying sets and so a substructure $B$ of an algebraic structure $A$ is just a subset $B$ such that when endowed with the same operations as $A$ it satisfies the axioms of being the type of structure in question. This is unfortunaetly not quite as easy in category theory in its fullest generality, the underlying objects which form a category are not sets with structure, they may be far more abstract and do not contain elements. Subobjects and quotients are not as obvious in the general category as it for groups and vector spaces. In practice one often works with categories in which the objects have underlying sets and maps have kernels, images, cokernels, et cetera. We will explore when we can treat categories as if they have elements in each object later.
 
-## Our first category
+## Categories
 
 We now introduce the titular concept, the category. We want to abstract the features which allow us to study structures such as groups, vector spaces, rings, module, algebras, sets, et cetera. The idea is that a category is a collection of objects share the same type of structure and a collection of morphisms between them. For a category of sets we would like to have the sets as objects and maps which are just the basic functions of sets. For a category of groups we want a collection of groups and a collection of group homomorphisms. We do however want to ensure that we always have the idenity maps for each object in the category.
 
@@ -106,6 +106,8 @@ for all $\psi\in\Hom$ with $\dom \psi = X$.
 :::
 
 We refer to the members of $\Ob$ as objects and members of $\Hom$ as morphisms. We tend to abuse the notation here and write $X\in \mathcal{C}$ for an object $X$. Additionally, we often give morphisms $\phi :X\to Y$, in the same manner as for the structures which we are use to, to mean that $\phi\in\Hom$, and $X$ and $Y$ are objects such that $\dom\phi = X$ and $\cod\phi =Y$. When we are working with multiple categories we might distinguish the object and morphism classes by subscripts, such as $\Ob_\mathcal{C}$ for the object class of $\mathcal{C}$ or $\Hom_\mathcal{A}$ for the morphism class of $\mathcal{A}$. For any two objects $X,Y\in \Ob$ we denote the class of morphisms with domain $X$ and codomain $Y$ by $\Hom_{\mathcal{C}}(X,Y)$. The definition above differs from that given by [@EilMac45],[^defdiff] here i favour a modified version of the definition given by [@Lein14] as it avoids having to deal with the, in my opinion, convoluted handling of domain and codomain, and identities. The presentation which I have given here is more in line with what is usually presented in an introduction to category theory, in my experience.
+
+### Inverses and Isomorphisms
 
 For each object $X\in \mathcal{C}$ we call the morphism $\id_X:X\to X$ the identity at $X$. In the same manner which one would prove that the group identity is unique we of course obtain that the identity at each object is unique. We give the definition of inverse morphisms below, these are just like inverses for maps of sets, where we want cancellation of morphisms to produce the identity morphism. Note that we do not always have inverses.
 
@@ -191,24 +193,60 @@ J(\phi) & \phi\in \End_{\mathcal{C}}Y
 From the constructions of $F_{\operatorname{out}}, G_{\operatorname{out}}, F_{\operatorname{in}}, G_{\operatorname{in}}, I$ and $J$ we obtain that $\Phi$ and $\Phi$ are mutually inverse.
 :::
 
+### Fundamental Examples
+
+We now turn to some simple examples of categories to solidify the definitions presented in this brief introduction. Before reading these, contemplate for a moment the different structures you have encountered previously. Are they sets with added structure? What structural properties do the maps possess, and how do they compose with each other? What do the identities look like and when do morphisms admit inverses?
+
+Often when we are constructing categories we choose first our appropriate definition of isomorphism, and then we work towards finding which definition of morphism yields these isomorphism. For example, for topological spaces we think of two spaces as isomorphic if there is a homeomorphism between them, that is a bijection which is continuous in both directions. Then we should restrict the class of morphisms to include only continuous maps. If we were to include non-continuous maps then we could have a non-continuous bijection of sets which is invertible and hence an isomorphism which is not a homeomorphism. Similarly, we consider two groups as isomorphic if there is a group isomorphism between them (that is a bijective map respecting group operations). If the set of morphisms is given by all group homomorphisms, then the isomorphism are precisely the group isomorphisms. However, if we were to include all maps we would have an invertible map which is not a group homorphism. For example, consider the group $\ZZ_4=\{0,1,2,3\}$, the group $\ZZ_2\times \ZZ_2={(0,0), (1,0), (0,1), (1,1)}$, and a map $\phi:\ZZ_4\to \ZZ_2\times \ZZ_2$ defined by 
+$$g\mapsto\begin{cases}
+(1,1) & g=0\\
+(0,1) & g=1\\
+(1,0) & g=2\\
+(0,0) & g=3
+\end{cases}$$
+Then $\phi$ is a bijective map, however it is not a group homomorphism as $\phi(0\ast 1)=\phi(1)=(0,1)$ and $\phi(0)\ast\phi(1)=(1,1)\ast (0,1)=(1,0)$, indeed no group isomorphism exists. The two groups are not isomorphic as groups but their underlying sets are, by such the wrong choice of definition for morphism will yield undesired isomorphisms, and hence the wrong critera for object equivalence.
+
+
+
 ### Unfinished
+
+::: {#exm-groupcategory}
+Let $G$ be a group, consider the category $\mathcal{G}$ with one object $X$ and for each element $g\in G$ we have an automorphism $\phi_g:X\to X$ whose inverse is given by $\phi_{g^{-1}}$ such that for each $g,h\in G$ we have $\phi_h\circ\phi_g=\phi_{g\ast h}$. This is a complete encoding of the group as a category, all possible group multiplications are given by successive compositions of morphisms, the group identity is given by the identity morphism, and composition is associative. Given a subgroup $H$ of $G$ we can form the category $\mathcal{H}$ from $\mathcal{G}$ by removing the morphisms corresponding to elements which are in $G$ but not in $H$.
+:::
+
+::: {#def-discretecategory}
+## Discrete category
+A category in which the only morphisms are the identity morphisms is called discrete.
+:::
+
+::: {#def-emptycategory}
+## Empty category
+The category with no objects and no morphisms is called the empty category.
+:::
 
 ::: {#def-subcategory}
 ## Subcategory
-Let $\mathcal{C}$ be a category. We say that a category $\mathcal{D}$ is a subcategory of $\mathcal{C}$ if $\Ob_\mathcal{D}$ is a subclass of $\Ob_{\mathcal{C}}$, $\Hom_\mathcal{D}$ is a subclass of $\Hom_{\mathcal{C}}$ with $\dom_\mathcal{D}=\dom_\mathcal{C}\vert_{\Hom_\mathcal{D}}$, $\cod_\mathcal{D}=\cod_\mathcal{C}\vert_{\Hom_\mathcal{D}}$, $\circ_{\mathcal{D}}=\circ_{\mathcal{C}}\vert_{\Hom_\mathcal{D} \times_{\Ob_{\mathcal{D}}}\Hom_{\mathcal{D}}}$, and $\id_X^{\mathcal{D}}=\id_X^{\mathcal{C}}$ for all $X\in\mathcal{D}$.
+Let $\mathcal{C}$ be a category. We say that a category $\mathcal{D}$ is a subcategory of $\mathcal{C}$ if $\Ob_\mathcal{D}$ is a subclass of $\Ob_{\mathcal{C}}$, $\Hom_\mathcal{D}$ is a subclass of $\Hom_{\mathcal{C}}$ with $$\dom_\mathcal{D}=\dom_\mathcal{C}\vert_{\Hom_\mathcal{D}}$$
+$$\cod_\mathcal{D}=\cod_\mathcal{C}\vert_{\Hom_\mathcal{D}}$$
+$$\circ_{\mathcal{D}}=\circ_{\mathcal{C}}\vert_{\Hom_\mathcal{D} \times_{\Ob_{\mathcal{D}}}\Hom_{\mathcal{D}}}$$ and $\id_X^{\mathcal{D}}=\id_X^{\mathcal{C}}$ for all $X\in\mathcal{D}$.
 :::
 
-Equivalently, given a subclass $\Ob_\mathcal{D}$ of $\Ob_\mathcal{C}$ and a subclass $\Hom_{\mathcal{D}}$ of $\Hom_\mathcal{C}$ we have a subcategory $\mathcal{D}$ with object class $\Ob_{\mathcal{D}}$ and morphism class $\Hom_{\mathcal{D}}$ if the image of $\Hom_{\mathcal{D}}\times_{\Ob_\mathcal{C}} \Hom_{\mathcal{D}}$ under $\circ_{\mathcal{C}}$ is in $\Hom_{\mathcal{D}}$, and $\id_X\in\Hom_{\mathcal{D}}$ for all $X\in \mathcal{D}$. That is to say that $\mathcal{D}$ is closed under composition and identities.
+Equivalently, given a subclass $\Ob_\mathcal{D}$ of $\Ob_\mathcal{C}$ and a subclass $\Hom_{\mathcal{D}}$ of $\Hom_\mathcal{C}$ we have a subcategory $\mathcal{D}$ with object class $\Ob_{\mathcal{D}}$ and morphism class $\Hom_{\mathcal{D}}$ if the image of $\Hom_{\mathcal{D}}\times_{\Ob_\mathcal{C}} \Hom_{\mathcal{D}}$ under $\circ_{\mathcal{C}}$ is in $\Hom_{\mathcal{D}}$, and $\id_X\in\Hom_{\mathcal{D}}$ for all $X\in \mathcal{D}$. That is to say that $\mathcal{D}$ is closed under composition and identities. We have the following obvious classifications of subcategories which quantify how complete their data is.
+
+::: {#def-fullandwide}
+## Full and wide subcategories
+Let $\mathcal{D}$ be a subcategory of $\mathcal{C}$. Then $\mathcal{D}$ is called a full subcategory if for each pair of objects $X$ and $Y$ in $\mathcal{D}$ we have that $\Hom_\mathcal{D}(X,Y)=\Hom_\mathcal{C}(X,Y)$. We say that the subcategory $\mathcal{D}$ is wide if $\Ob_\mathcal{D}=\Ob_{\mathcal{C}}$.
+:::
+
+Roughly speaking fullness of a subcategory means that it inherits all possible morphisms for the objects from the supercategory, and wideness means that we have all objects of the supercategory. Clearly a full and wide subcategory is just the supercategory itself.
 
 ::: {#exm-exmsubcat}
 #. Let $\mathcal{C}$ be a category, then we can form a subcategory $\mathcal{D}\subseteq\mathcal{C}$ by letting $\mathcal{D}$ be the discrete category with objects $\Ob_{\mathcal{C}}$, this is a wide subcategory.
 #. Consider the category of groups $\Grp$, then the category of Abelian Groups $\AbGrp$ is a full subcategory of $\Grp$.
 #. For the category of vector spaces $\Vect$ we can construct a full subcategory whose objects are the finite dimensional vector spaces.
 #. For any category $\mathcal{C}$ and an object $X\in \mathcal{C}$ we can create the full subcategory $\mathcal{C}_X$ consisting all objects $Y$ for which there is a morphism $\phi\in \Hom_\mathcal{C}$ with $Y=\dom\phi$ and $X=\cod \phi$ or $Y=\cod \phi$ and $X=\dom \phi$.
-#. subgroup group category.
+#. Consider [@exm-groupcategory] and let $H$ be a subgroup of $G$. Then the corresponding category $\mathcal{H}$ is a subcategory of $\mathcal{G}$. This subcategory is obviously wide.
 :::
-
-We now turn to some simple examples of categories to conclude this brief introduction. Before reading these, contemplate for a moment the different structures you have encountered previously. Are they sets with added structure? What structural properties do the maps possess, and how do they compose with each other? What do the identities look like and when do morphisms admit inverses? 
 
 [^defdiff]: In particular the domain and codomain maps do not appear in the definition from Eilenberg and MacLane, and the axioms instead give rise to a result which states that each morphim $\phi$ admits exactly one identity $\id_X$ such that $\phi\circ\id_X$ is defined, and exactly one identity $\id_Y$ such that $\id_Y\circ\phi$ is well defined. Then $X$ is the domain and $Y$ is the codomain.
 
